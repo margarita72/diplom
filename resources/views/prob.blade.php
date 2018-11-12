@@ -7,21 +7,13 @@
 </head>
 <body class="animsition">
 
-@include('header.header')
+
 
 @include('header.cart')
 
 
 
-@include('slider.slider')
 
-
-@include('content.banner')
-
-
-@include('content.product')
-
-@include('footer.footer')
 
 
 @include('shards.modal1')
