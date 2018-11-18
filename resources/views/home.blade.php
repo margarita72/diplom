@@ -1,3 +1,4 @@
-@extends('layouts.index')
-@extends('layouts.app')
+<!--@extends('layouts.index')-->
+<!--@ extends('layouts.app')-->
+
 

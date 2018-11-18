@@ -10,17 +10,11 @@
                 </div>
 
                 <div class="right-top-bar flex-w h-full">
-                    <a href="#" class="flex-c-m trans-04 p-lr-25">
-                        Login
-                    </a>
 
-                    <a href="#" class="flex-c-m trans-04 p-lr-25">
-                        Help & FAQs
-                    </a>
 
-                    <a href="#" class="flex-c-m trans-04 p-lr-25">
-                        My Account
-                    </a>
+
+
+
 
                     <a href="#" class="flex-c-m trans-04 p-lr-25">
                         EN
@@ -41,7 +35,7 @@
                     <img src="images/icons/logo-01.png" alt="IMG-LOGO">
                 </a>
 
-                <!-- Menu desktop -->
+                <!-- Главное меню -->
                 <div class="menu-desktop">
                     <ul class="main-menu">
                         <li class="active-menu">
@@ -72,16 +66,50 @@
                         <li>
                             <a href="contact.html">Contact</a>
                         </li>
+
+                        @guest
+                        <li>
+                            <a href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+
+                        <li>
+                            @if (Route::has('register'))
+                            <a href="{{ route('register') }}">{{ __('Register') }}</a>
+                            @endif
+                        </li>
+                        @else
+                        <li class="active-menu">
+                            <a href="#">
+                                {{ Auth::user()->name }}
+
+
+                            </a>
+                            <ul class="sub-menu">
+                                <a href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+                            </ul>
+
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+
+                        </li>
+                        @endguest
+
                     </ul>
                 </div>
 
-                <!-- Icon header -->
+                <!-- Icon header Иконки меню для больших экранов-->
                 <div class="wrap-icon-header flex-w flex-r-m">
-                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
+                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search" >
                         <i class="zmdi zmdi-search"></i>
                     </div>
 
-                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
+                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="3">
                         <i class="zmdi zmdi-shopping-cart"></i>
                     </div>
 
@@ -100,19 +128,20 @@
             <a href="index.html"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
         </div>
 
-        <!-- Icon header -->
+        <!-- Icon header Иконки меню для мобильной версии -->
         <div class="wrap-icon-header flex-w flex-r-m m-r-15">
             <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
                 <i class="zmdi zmdi-search"></i>
             </div>
 
-            <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="2">
+            <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="5">
                 <i class="zmdi zmdi-shopping-cart"></i>
             </div>
 
             <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
                 <i class="zmdi zmdi-favorite-outline"></i>
             </a>
+
         </div>
 
         <!-- Button show menu -->
@@ -153,7 +182,7 @@
                 </div>
             </li>
         </ul>
-
+            <!--Основное меню-->
         <ul class="main-menu-m">
             <li>
                 <a href="index.html">Home</a>
