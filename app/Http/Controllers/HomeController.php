@@ -11,6 +11,17 @@ class HomeController extends Controller
      *
      * @return void
      */
+    /**
+        здесь проверяется и
+        разрешается вход на страгицу только после прохождения аутентификации
+     * public function __construct()
+    {
+    $this->middleware('auth');
+    }
+
+
+     */
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -23,6 +34,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('representation/homs');
     }
 }
