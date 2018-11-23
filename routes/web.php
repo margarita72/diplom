@@ -26,6 +26,18 @@ Route::get('/homs', function () {
 Route::get('/about', function () {
     return view('representation/about');
 });
+
+Route::get('/blog', function () {
+    return view('representation/Blog/blog');
+});
+Route::get('/blog_detail', function () {
+    return view('representation/Blog/blog_detail');
+});
+
+Route::get('/contact', function () {
+    return view('representation/contact');
+});
+
 Route::get('/index', function () {
     return view('home');
 });
@@ -33,3 +45,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::post('foo/bar', function()
+{
+    return 'Hello World';
+});
