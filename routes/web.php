@@ -37,7 +37,12 @@ Route::get('/blog_detail', function () {
 Route::get('/contact', function () {
     return view('representation/contact');
 });
-
+Route::get('/shopping', function () {
+    return view('representation/shopping_cart');
+});
+Route::get('/product_detail', function () {
+    return view('representation/product_detail');
+});
 Route::get('/index', function () {
     return view('home');
 });
@@ -45,7 +50,3 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('foo/bar', function()
-{
-    return 'Hello World';
-});

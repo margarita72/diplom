@@ -49,6 +49,8 @@
         @yield('banner')
         <!-- Product -->
         @yield('product')
+
+        @yield('related_products')
     @show
 
 
