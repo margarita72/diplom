@@ -46,6 +46,10 @@ Route::get('/product_detail', function () {
 Route::get('/index', function () {
     return view('home');
 });
+
+Route::get('/primers', function () {
+    return view('layouts/primer');
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
