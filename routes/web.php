@@ -48,7 +48,7 @@ Route::get('/index', function () {
 });
 
 Route::get('/primers', function () {
-    return view('layouts/primer');
+    return view('auth/primer');
 });
 Auth::routes();
 
