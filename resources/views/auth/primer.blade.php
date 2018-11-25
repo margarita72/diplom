@@ -2,6 +2,7 @@
 @section('title', 'logins')
 
 @section('class')
+    <!--стили -->
     <link rel="stylesheet" type="text/css" href="css/login/util.css">
     <link rel="stylesheet" type="text/css" href="css/login/main.css">
 @stop
@@ -65,7 +66,7 @@
                                 </div>
                             </div>
                             <div class="container-login100-form-btn">
-                                <button class="login100-form-btn" type="submit">
+                                <button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" type="submit">
                                     {{ __('Login') }}
                                 </button>
                             </div>

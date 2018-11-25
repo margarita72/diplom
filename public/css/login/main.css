@@ -186,7 +186,8 @@ iframe {
 
 .wrap-login100 {
   width: 560px;
-  background: #bdbeb3;
+  /*цвет самой формы где моно залогиниться*/
+  background: rgba(220, 220, 220, 0.9);
   border-radius: 10px;
   position: relative;
 }

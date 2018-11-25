@@ -3,6 +3,9 @@
 <head>
     <title>@yield('title')</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/login/util.css">
+    <link rel="stylesheet" type="text/css" href="css/login/main.css">
+    <!--==================================================================-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="images/icons/favicon.png"/>
@@ -210,6 +213,7 @@
 		</span>
 </div>
 
+
 <!-- Modal1 -->
 <div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
     <div class="overlay-modal1 js-hide-modal1"></div>
@@ -364,6 +368,7 @@
     </div>
 </div>
 
+
 <!--===============================================================================================-->
 <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
@@ -384,7 +389,7 @@
 <!--===============================================================================================-->
 <script src="vendor/daterangepicker/moment.min.js"></script>
 <script src="vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
+<!--======================для слайдеров=========================================================================-->
 <script src="vendor/slick/slick.min.js"></script>
 <script src="js/slick-custom.js"></script>
 <!--===============================================================================================-->
