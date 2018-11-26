@@ -67,7 +67,7 @@
 
                         @guest
                         <li>
-                            <a href="{{ route('login') }}" >{{ __('Login') }}</a>
+                            <a href="{{ route('login') }}" class="js-show-login-form">{{ __('Login') }}</a>
                         </li>
 
                         <li>

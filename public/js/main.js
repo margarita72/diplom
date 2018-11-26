@@ -276,6 +276,15 @@
     $('.js-hide-modal1').on('click',function(){
         $('.js-modal1').removeClass('show-modal1');
     });
+    /*  login_form */
+    $('.js-show-login-form').on('click',function(e){
+        e.preventDefault();
+        $('.js-modals').addClass('show-login-form');
+    });
+
+    $('.js-hide-login-form').on('click',function(){
+        $('.js-modals').removeClass('show-login-form');
+    });
 
 
 

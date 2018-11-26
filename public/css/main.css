@@ -1895,12 +1895,24 @@ input.num-product::-webkit-inner-spin-button {
   background: #000;
   opacity: 0.8;
 }
-
+.overlay-login-form {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.8;
+}
 .show-modal1 {
   visibility: visible;
   opacity: 1;
 }
-
+.show-login-form {
+  visibility: visible;
+  opacity: 1;
+}
 /*//////////////////////////////////////////////////////////////////
 [ Table Shopping Cart ]*/
 
