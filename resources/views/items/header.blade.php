@@ -1,12 +1,16 @@
 <!-- Header -->
+
 <header class="header-v4">
+
     <!-- Header desktop -->
     <div class="container-menu-desktop">
         <!-- Topbar -->
         <div class="top-bar">
             <div class="content-topbar flex-sb-m h-full container">
                 <div class="left-top-bar">
-                    Free shipping for standard order over $100
+
+                    Добро пожаловать
+
                 </div>
 
                 <div class="right-top-bar flex-w h-full">
@@ -36,34 +40,14 @@
                 <!-- Главное меню -->
                 <div class="menu-desktop">
                     <ul class="main-menu">
-                        <li class="active-menu">
-                            <a href="index.html">Home</a>
-                            <ul class="sub-menu">
-                                <li><a href="{{url('/')}}">Homepage 1</a></li>
-                                <li><a href="home-02.html">Homepage 2</a></li>
-                                <li><a href="home-03.html">Homepage 3</a></li>
-                            </ul>
-                        </li>
+
+
+
 
                         <li>
-                            <a href="{{url('/product')}}">Shop</a>
+                            {!! menu('main1', 'menu') !!}
                         </li>
 
-                        <li class="label1" data-label1="hot">
-                            <a href="{{url('/shopping')}}">Features</a>
-                        </li>
-
-                        <li>
-                            <a href="{{url('/blog')}}">Blog</a>
-                        </li>
-
-                        <li>
-                            <a href="{{url('/about')}}">About</a>
-                        </li>
-
-                        <li>
-                            <a href="{{url('/contact')}}">Contact</a>
-                        </li>
 
                         @guest
                         <li>
@@ -76,7 +60,7 @@
                             @endif
                         </li>
                         @else
-                        <li class="active-menu">
+                        <li>
                             <a href="#">
                                 {{ Auth::user()->name }}
 
@@ -183,36 +167,45 @@
             <!--Основное меню-->
         <ul class="main-menu-m">
             <li>
-                <a href="index.html">Home</a>
-                <ul class="sub-menu-m">
-                    <li><a href="index.html">Homepage 1</a></li>
-                    <li><a href="home-02.html">Homepage 2</a></li>
-                    <li><a href="home-03.html">Homepage 3</a></li>
-                </ul>
-                <span class="arrow-main-menu-m">
-						<i class="fa fa-angle-right" aria-hidden="true"></i>
+                {!! menu('main1', 'menu_mobile') !!}
+            </li>
+
+            @guest
+                <li>
+                    <a href="{{ route('login') }}" class="js-show-login-form">{{ __('Login') }}</a>
+                </li>
+
+                <li>
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}">{{ __('Register') }}</a>
+                    @endif
+                </li>
+            @else
+                <li>
+                    <a href="#">
+                        {{ Auth::user()->name }}
+
+
+                    </a>
+                    <ul class="sub-menu-m">
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+                    </ul>
+
+
+                    <span class="arrow-main-menu-m">
+						<i class="fa fa-angle-right" aria-hidden="true">exit</i>
 					</span>
-            </li>
 
-            <li>
-                <a href="product.html">Shop</a>
-            </li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
 
-            <li>
-                <a href="shoping-cart.html" class="label1 rs1" data-label1="hot">Features</a>
-            </li>
-
-            <li>
-                <a href="blog.html">Blog</a>
-            </li>
-
-            <li>
-                <a href="about.html">About</a>
-            </li>
-
-            <li>
-                <a href="contact.html">Contact</a>
-            </li>
+                </li>
+            @endguest
         </ul>
     </div>
 
@@ -232,3 +225,4 @@
         </div>
     </div>
     </header>
+
