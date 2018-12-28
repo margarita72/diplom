@@ -140,7 +140,7 @@
         <ul class="topbar-mobile">
             <li>
                 <div class="left-top-bar">
-                    Free shipping fory standard order over $100
+                    Free shipping forek standard order over $100
                 </div>
             </li>
 
