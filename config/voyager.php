@@ -76,7 +76,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | Here you can specify if media manager can show hidden files like(.gitignore)
-    |
+    | Здесь вы можете указать, может ли media manager Показывать скрытые файлы
     */
 
     'hidden_files' => false,
@@ -87,15 +87,22 @@ return [
     |--------------------------------------------------------------------------
     |
     | Here you can specify voyager database settings
+    | Здесь можно указать настройки бд
     |
     */
 
     'database' => [
         'tables' => [
-            'hidden' => ['migrations', 'data_rows', 'data_types', 'menu_items', 'password_resets', 'permission_role', 'settings'],
+            'hidden' => ['migrations', 'data_rows', 'data_types', 'menu_items', 'password_resets', 'permission_role', 'settings', 'new'],
         ],
     ],
 
+
+
+
+
+
+    'prefix'=> 'admin',
     /*
     |--------------------------------------------------------------------------
     | Multilingual configuration
@@ -199,13 +206,14 @@ return [
     |
     */
 
-    'primary_color' => '#22A7F0',
+    'primary_color' => '#F4A7D3',
 
     'show_dev_tips' => true, // Show development tip "How To Use:" in Menu and Settings
 
     // Here you can specify additional assets you would like to be included in the master.blade
     'additional_css' => [
         //'css/custom.css',
+
     ],
 
     'additional_js' => [
