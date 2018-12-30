@@ -8,7 +8,7 @@ class CreateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * заказы
      * @return void
      */
     public function up()

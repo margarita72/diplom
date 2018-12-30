@@ -8,7 +8,7 @@ class CreateSuppliersTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * поставщики
      * @return void
      */
     public function up()
