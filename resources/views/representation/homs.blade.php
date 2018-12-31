@@ -3,7 +3,7 @@
 
 
         @section('slider')
-            @include('items.Slider_two')
+            @include('items.Slider_one')
         @stop
 
         @section('banner')
