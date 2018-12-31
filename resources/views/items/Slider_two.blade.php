@@ -1,21 +1,21 @@
 <section class="section-slide">
     <div class="wrap-slick1 rs2-slick1">
         <div class="slick1">
-            <div class="item-slick1 bg-overlay1" style="background-image: url(images/slide-05.jpg);" data-thumb="images/thumb-01.jpg" data-caption="Women’s Wear">
-                <img src={{Voyager::image(setting('site.logo'))}}>
+            <div class="item-slick1 bg-overlay1" style="background-image: url({{asset(Voyager::image(setting('menu.logo')))}});" data-thumb="{{asset(Voyager::image(setting('menu.logo')))}}" data-caption="Women’s Wear">
+
                 <div class="container h-full">
 
                    <!--<img src={{Voyager::image(setting('site.logo'))}} >-->
                     <div class="flex-col-c-m h-full p-t-100 p-b-60 respon5">
                         <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
 								<span class="ltext-202 txt-center cl0 respon2">
-									Women Collection 2018
+									{{setting('menu.text1')}}
 								</span>
                         </div>
 
                         <div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
                             <h2 class="ltext-104 txt-center cl0 p-t-22 p-b-40 respon1">
-                                New arrivals
+                                {{setting('menu.text_big1')}}
                             </h2>
                         </div>
 
@@ -28,18 +28,18 @@
                 </div>
             </div>
 
-            <div class="item-slick1 bg-overlay1" style="background-image: url(images/slide-06.jpg);" data-thumb="images/thumb-02.jpg" data-caption="Men’s Wear">
+            <div class="item-slick1 bg-overlay1" style="background-image: url({{asset(Voyager::image(setting('menu.logo2')))}});" data-thumb="{{asset(Voyager::image(setting('menu.logo2')))}}" data-caption="Men’s Wear">
                 <div class="container h-full">
                     <div class="flex-col-c-m h-full p-t-100 p-b-60 respon5">
                         <div class="layer-slick1 animated visible-false" data-appear="rollIn" data-delay="0">
 								<span class="ltext-202 txt-center cl0 respon2">
-									Men New-Season
+									{{setting('menu.text2')}}
 								</span>
                         </div>
 
                         <div class="layer-slick1 animated visible-false" data-appear="lightSpeedIn" data-delay="800">
                             <h2 class="ltext-104 txt-center cl0 p-t-22 p-b-40 respon1">
-                                Jackets & Coats
+                                {{setting('menu.text_big2')}}
                             </h2>
                         </div>
 
@@ -52,18 +52,18 @@
                 </div>
             </div>
 
-            <div class="item-slick1 bg-overlay1" style="background-image: url(images/slide-07.jpg);" data-thumb="images/thumb-03.jpg" data-caption="Men’s Wear">
+            <div class="item-slick1 bg-overlay1" style="background-image: url({{asset(Voyager::image(setting('menu.logo3')))}});" data-thumb="{{asset(Voyager::image(setting('menu.logo3')))}}" data-caption="Men’s Wear">
                 <div class="container h-full">
                     <div class="flex-col-c-m h-full p-t-100 p-b-60 respon5">
                         <div class="layer-slick1 animated visible-false" data-appear="rotateInDownLeft" data-delay="0">
 								<span class="ltext-202 txt-center cl0 respon2">
-									Men Collection 2018
+									{{setting('menu.text3')}}
 								</span>
                         </div>
 
                         <div class="layer-slick1 animated visible-false" data-appear="rotateInUpRight" data-delay="800">
                             <h2 class="ltext-104 txt-center cl0 p-t-22 p-b-40 respon1">
-                                NEW SEASON
+                                {{setting('menu.text_big3')}}
                             </h2>
                         </div>
 
