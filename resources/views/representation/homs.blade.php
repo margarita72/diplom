@@ -8,7 +8,7 @@
             @else
                 @include('items.Slider_two')
             @endif
-            
+
         @stop
 
         @section('banner')
