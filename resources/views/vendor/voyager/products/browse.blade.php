@@ -27,6 +27,8 @@
 @stop
 
 @section('content')
+    <p>bghf</p>
+
     <div class="page-content browse container-fluid">
         @include('voyager::alerts')
         <div class="row">
