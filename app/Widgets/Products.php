@@ -26,9 +26,9 @@ class Products extends BaseMargo
         $string = trans_choice('Product', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [
-            'icon'   => 'voyager-news',
+            'icon'   => 'voyager-basket',
             'title'  => "{$count} {$string}",
-            'text'   => __('voyager::dimmer.post_text', ['count' => $count, 'string' => Str::lower($string)]),
+            'text'   => __('Посмотрите список всех продуктов', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [
                 'text' => 'Products',
                 'link' => route('voyager.products.index'),

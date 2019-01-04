@@ -9,6 +9,7 @@
             <!--header-->
         @section('header')
             <header>
+
             @parent
             </header>
         @stop
@@ -29,6 +30,7 @@
 <!--@ extends('layouts.app')-->
 <!--Посмотреть и исправить!!!!!!!!!!!-->
     @section('product')
+
         @include('items.Product')
 @section('product_overview')
     @extends('items.Product')
