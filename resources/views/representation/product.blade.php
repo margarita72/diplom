@@ -4,5 +4,6 @@
 
 @section('product')
     @include('items.Product')
+
 @stop
 

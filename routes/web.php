@@ -11,12 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('representation/homs');
-});
-Route::get('/product', function () {
-    return view('representation/product');
-});
+Route::get('/', 'ProductController@homs');
+Route::get('/product', 'ProductController@product');
 Route::get('/homs', function () {
     return view('representation/homs');
 });
