@@ -15,7 +15,8 @@ class ProductController extends Controller
     public function homs()
     {
         $products = DB::table('products')->paginate(15);
-        return view('representation.homs', ['products' => $products]);
+        $Categorii_products = DB::table('Categorii_products')->paginate(15);
+        return view('representation.homs', ['products' => $products, 'Categorii_products' => $Categorii_products]);
     }
 
     public function product()
