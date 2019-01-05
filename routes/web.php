@@ -36,9 +36,7 @@ Route::get('/contact', function () {
 Route::get('/shopping', function () {
     return view('representation/shopping_cart');
 });
-Route::get('/product_detail', function () {
-    return view('representation/product_detail');
-});
+Route::get('/product_detail/{id}', 'ProductController@product_detail');
 Route::get('/index', function () {
     return view('home');
 });
