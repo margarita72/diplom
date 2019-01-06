@@ -35,10 +35,11 @@ class ProductController extends Controller
         $products=Product::
         select(['id','image','name','meta_description','unit_cost','imd_dop'])
             ->where('id',$id)->first();
-        dump($products);
-        //$products = DB::table('products')->paginate(15);
-        //$products = DB::table('products')->orderBy('id')->lists('imd_dop');
-        return view('representation/product_detail')->with(['products'=>$products]);
+            //передаю массив путей до изображений товаров
+        $arr = json_decode($products->imd_dop, true);
+        //dump($arr);
+
+        return view('representation/product_detail')->with(['products'=>$products, 'arr'=>$arr]);
         //return view('representation/product_detail', ['products' => Product::findOrFail($id)]);
 
     }
