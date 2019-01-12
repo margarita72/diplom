@@ -13,12 +13,11 @@
 
 Route::get('/', 'ProductController@homs');
 Route::get('/product', 'ProductController@product');
+Route::get('/product/{id}', 'ProductController@product_id');
 Route::get('/homs', function () {
     return view('representation/homs');
 });
-Route::get('/homs', function () {
-    return view('layouts/home_my');
-});
+Route::get('/home_my', 'ProductController@home_my');
 Route::get('/about', function () {
     return view('representation/about');
 });
