@@ -40,8 +40,14 @@ class ProductController extends Controller
             //передаю массив путей до изображений товаров
         $arr = json_decode($products->imd_dop, true);
         //dump($arr);
+        //dump($products);
 
-        return view('representation/product_detail')->with(['products'=>$products, 'arr'=>$arr]);
+        $productss = Product::
+        select(['id','image','name','meta_description','unit_cost'])
+            ->get();
+        //dump($productss);
+
+        return view('representation/product_detail')->with(['products'=>$products, 'arr'=>$arr, 'productss'=>$productss]);
         //return view('representation/product_detail', ['products' => Product::findOrFail($id)]);
 
     }
