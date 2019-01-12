@@ -56,7 +56,7 @@ class ProductController extends Controller
         $products=Product::
         select(['id','image','name','meta_description','unit_cost','imd_dop'])
             ->where('id',$id)->first();
-        dump($products);
+        //dump($products);
         return view('items/product_id')->with(['products'=>$products]);
     }
 }
