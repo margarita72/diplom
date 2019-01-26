@@ -11,17 +11,24 @@ use App\Http\Controllers\home_my;
 
 
 
+
 class ProductController extends Controller
 {
     /**
      * Вывести все.
          */
     // страница «index/»
-    public function homs()
+    public function homs(Request $request)
     {
+        $data=$request->all();
+        //dump($data);
+        $productsi = Product::where('id',$request->id)->get();
+
         $products = DB::table('products')->paginate(15);
         $Categorii_products = DB::table('Categorii_products')->get();
-        return view('representation.homs', ['products' => $products, 'Categorii_products' => $Categorii_products]);
+        //dump($products);
+        return view('representation.homs', ['products' => $products,
+            'Categorii_products' => $Categorii_products]);
     }
 
     public function product()
@@ -49,6 +56,16 @@ class ProductController extends Controller
 
         return view('representation/product_detail')->with(['products'=>$products, 'arr'=>$arr, 'productss'=>$productss]);
         //return view('representation/product_detail', ['products' => Product::findOrFail($id)]);
+
+    }
+        // добавить запись в таблицу корзина метод post
+    public function insert(Request $request){
+
+        $id_products = $request->input('id_products');
+        $id_user = $request->input('id_user');
+        DB::insert('insert into basket(id_user,id_products) values (?, ?)',[$id_user,$id_products]);
+       
+
 
     }
     public function home_my(){

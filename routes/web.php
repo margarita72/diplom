@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'ProductController@homs');
+Route::match(['get', 'post'],'/', 'ProductController@homs')->name('product_id');
 Route::get('/product', 'ProductController@product');
 Route::get('/product/{id}', 'ProductController@product_id');
 Route::get('/homs', function () {
@@ -32,10 +32,12 @@ Route::get('/blog_detail', function () {
 Route::get('/contact', function () {
     return view('representation/contact');
 });
+
+Route::get('/product_detail/{id}', 'ProductController@product_detail');
+Route::post('/shopping', 'ProductController@insert'); //контролер на добавление тавара в корзину
 Route::get('/shopping', function () {
     return view('representation/shopping_cart');
 });
-Route::get('/product_detail/{id}', 'ProductController@product_detail');
 Route::get('/index', function () {
     return view('home');
 });

@@ -67,11 +67,17 @@
 
                             </a>
                             <ul class="sub-menu">
-                                <a href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
+                                <li>
+                                    <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
                                document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
+                                        {{ __('Logout') }}
+                                    </a>
+                                    <a href="/shopping">
+                                        {{__('Корзина')}}
+                                    </a>
+                                </li>
+
                             </ul>
 
 
@@ -80,16 +86,14 @@
                             </form>
 
                         </li>
-                        @endguest
+
 
                     </ul>
                 </div>
 
                 <!-- Icon header Иконки меню для больших экранов-->
                 <div class="wrap-icon-header flex-w flex-r-m">
-                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search" >
-                        <i class="zmdi zmdi-search"></i>
-                    </div>
+
 
                     <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="3">
                         <i class="zmdi zmdi-shopping-cart"></i>
@@ -98,7 +102,12 @@
                     <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
                         <i class="zmdi zmdi-favorite-outline"></i>
                     </a>
+
+                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search" >
+                        <i class="zmdi zmdi-search"></i>
+                    </div>
                 </div>
+                @endguest
             </nav>
         </div>
     </div>
