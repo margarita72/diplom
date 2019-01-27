@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Basket;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -8,6 +9,7 @@ use App\Http\Controllers\products;
 use App\Http\Controllers\product_id;
 use App\Http\Controllers\product_detail;
 use App\Http\Controllers\home_my;
+use App\Article;
 
 
 
@@ -38,6 +40,36 @@ class ProductController extends Controller
         return view('representation/product', ['products' => $products, 'Categorii_products' => $Categorii_products]);
     }
 
+    public function index($id,Request $request ){
+        $products=Product::
+        select(['id','image','name','meta_description','unit_cost','imd_dop'])
+            ->where('id',$id)->first();
+        //передаю массив путей до изображений товаров
+        $arr = json_decode($products->imd_dop, true);
+        //dump($arr);
+        //dump($products);
+
+        $productss = Product::
+        select(['id','image','name','meta_description','unit_cost'])
+            ->get();
+
+        $id_products = $request->input('id_products');
+        $id_user = $request->input('id_user');
+        DB::insert('insert into basket(id_user,id_products) values (?, ?)',[$id_user,$id_products]);
+
+        //dump($productss);
+        //$res = Basket::create(['id_user' => $request->id_user, 'id_products' => $request->id_products]);
+        //$data = ['id' => $res->id, 'id_user' => $request->id_user, 'id_products' => $request->id_products];
+        //return $data;
+        dump($id_products);
+        return view('representation/product_detail')->with(['products'=>$products,
+            'arr'=>$arr, 'productss'=>$productss]);
+
+
+
+    }
+
+    //пока лишнее
     public function product_detail($id)
     {
 
@@ -57,6 +89,28 @@ class ProductController extends Controller
         return view('representation/product_detail')->with(['products'=>$products, 'arr'=>$arr, 'productss'=>$productss]);
         //return view('representation/product_detail', ['products' => Product::findOrFail($id)]);
 
+
+
+    }
+
+
+    public function store(Request $request){
+
+        //$res = Basket::create(['id_user' => $request->input('id_user'), 'id_products' => $request->input('id_products')]);
+        //$data = ['id' => $res->id, 'id_user' => $request->input('id_user'), 'id_products' => $request->input('id_products')];
+        //$data = DB::insert('insert into basket(id_user,id_products) values (?, ?)',[$id_user,$id_products]);
+        $id_products = $request->input('id_products');
+        $id_user = $request->input('id_user');
+        $data = ['id_user' => $id_user, 'id_products' => $id_products];
+        return $data;
+        //return view('representation/product_detail')->with(['products'=>$products]);
+
+        dump('cgchgvgh');
+    }
+    public function ajaxRequestPost(Request $request){
+        $input = $request->all();
+        return response()->json(['success'=>'Got Simple Ajax Request.']);
+
     }
         // добавить запись в таблицу корзина метод post
     public function insert(Request $request){
@@ -64,7 +118,8 @@ class ProductController extends Controller
         $id_products = $request->input('id_products');
         $id_user = $request->input('id_user');
         DB::insert('insert into basket(id_user,id_products) values (?, ?)',[$id_user,$id_products]);
-       
+        return view('representation/shopping_cart');
+
 
 
     }

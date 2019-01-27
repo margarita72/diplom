@@ -33,7 +33,14 @@ Route::get('/contact', function () {
     return view('representation/contact');
 });
 
-Route::get('/product_detail/{id}', 'ProductController@product_detail');
+//Route::get('/product_detail/{id}', 'ProductController@product_detail');
+//Route::post('/product_detail/{id}', 'ProductController@ajaxRequestPost');
+Route::resource('/product_detail/{id}', 'ProductController', ['only' =>['store','index']]);
+//Route::match(['get', 'post'],'/product_detail/{id}', ['uses'=>'ProductController@product_detail', 'as'=>'store']);
+//Route::resource('/product_detail/{id}', 'ProductController',['only' => ['index', 'store', 'show', 'destroy']]);
+//Route::post('/product_detail/{id}', 'ProductController@ajaxRequestPost');
+
+
 Route::post('/shopping', 'ProductController@insert'); //контролер на добавление тавара в корзину
 Route::get('/shopping', function () {
     return view('representation/shopping_cart');

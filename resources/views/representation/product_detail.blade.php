@@ -1,7 +1,8 @@
 @extends('layouts.home_my')
 @section('title','product detail')
 
-
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+</script>
 
     @section('content')
         <!-- breadcrumb -->
@@ -150,13 +151,66 @@
                                                 Add to cart
                                             </button>
 
+                                            <button id="save" type="button">
+                                                fggfgdf
+                                            </button>
 
                                         </div>
                                     </div>
                                 </div>
                             </form>
 
+                            <input type = "hidden" name = "id_products" value ="{!! $products->id !!}" id="id_products">
+                            <input type = "hidden" name = "id_user" value ="{{Auth::id()}}" id="id_user">
+                            <button id="save" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+                                сохранить
+                            </button>
+                            <br>
 
+
+
+
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+                            <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+                            <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+                            <!--скрипт обработки запроса без презагрузки страицы методом ajax-->
+                            <script>
+                                $.ajaxSetup({
+                                    headers: {
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    }
+                                });
+                                $(function() {
+                                    $('#save').on('click',function(){
+                                        var id_products = $('#id_products').val();
+                                        var id_user = $('#id_user').val();
+                                        $.ajax({
+                                            //url: '{ route('article.store') }}',
+                                            //url: '{ route('product_detail.{id}.store')}}',
+                                            url:'product_detail.{id}.store',
+                                            type: "POST",
+                                            data: {id_products:id_products,id_user:id_user},
+                                            success: function (data) {
+                                                //$("#data1").html(data.data1);
+                                                //$('#addArticle').modal('hide');
+                                                //$('#articles-wrap').removeClass('hidden').addClass('show');
+                                                //$('.alert').removeClass('show').addClass('hidden');
+                                                //var str = '<tr><td>'+data['id']+
+                                                 //   '</td><td><a href="/article/'+data['id']+'">'+data['id_user']+'</a>'+
+                                                 //   '</td><td><a href="/article/'+data['id']+'" class="delete" data-delete="'+data['id']+'">Удалить</a></td></tr>';
+                                                alert(data.success);
+                                                $('.table > tbody:last').append(str);
+                                            },
+                                            error: function (msg) {
+                                                alert('ошибка');
+
+                                            }
+                                        });
+                                    });
+                                })
+                            </script>
                             <!--  -->
                             <div class="flex-w flex-m p-l-100 p-t-40 respon7">
                                 <div class="flex-m bor9 p-r-10 m-r-11">
