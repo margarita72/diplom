@@ -160,13 +160,40 @@
                                 </div>
                             </form>
 
-                            <input type = "hidden" name = "id_products" value ="{!! $products->id !!}" id="id_products">
-                            <input type = "hidden" name = "id_user" value ="{{Auth::id()}}" id="id_user">
-                            <button id="save" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-                                сохранить
-                            </button>
-                            <br>
+                            <form id="contactform" action="/ajax" method="post">
+                                {{ csrf_field() }}
 
+
+
+
+                                <input type = "hidden" name = "id_products" value ="{!! $products->id !!}" id="id_products">
+                                <input type = "hidden" name = "id_user" value ="{{Auth::id()}}" id="id_user">
+                                <button id="save" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+                                    сохранить1
+                                </button>
+                                <br>
+                                <button id="save" type="button">
+                                    fggfgdf1
+                                </button>
+                            </form>
+
+                            <script>
+                                $(document).ready(function(){
+                                    $('#contactform').on('submit', function(e){
+                                        e.preventDefault();
+
+                                        $.ajax({
+                                            type: 'POST',
+                                            url: '/ajax',
+                                            data: $('#contactform').serialize(),
+                                            success: function(result){
+                                                console.log(result);
+                                                alert(result);
+                                            }
+                                        });
+                                    });
+                                });
+                            </script>
 
 
 

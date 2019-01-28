@@ -39,7 +39,7 @@ Route::resource('/product_detail/{id}', 'ProductController', ['only' =>['store',
 //Route::match(['get', 'post'],'/product_detail/{id}', ['uses'=>'ProductController@product_detail', 'as'=>'store']);
 //Route::resource('/product_detail/{id}', 'ProductController',['only' => ['index', 'store', 'show', 'destroy']]);
 //Route::post('/product_detail/{id}', 'ProductController@ajaxRequestPost');
-
+Route::post('/ajax', 'ProductController@send');
 
 Route::post('/shopping', 'ProductController@insert'); //контролер на добавление тавара в корзину
 Route::get('/shopping', function () {
