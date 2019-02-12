@@ -70,7 +70,23 @@ class ProductController extends Controller
     }
 
     public  function send(Request $request){
-        dd($request->all());
+        $id_products = $request->input('id_products');
+        $id_user = $request->input('id_user');
+        DB::insert('insert into basket(id_user,id_products) values (?, ?)',[$id_user,$id_products]);
+//        $res = Basket::create(['id_products' => $request->id_products, 'id_user' => $request->id_user]);
+//        $data = ['id' => $res->id, 'id_products' => $request->id_products, 'id_user' => $request->id_user];
+//        return $data;
+        //$id_products = $request->input('id_products');
+        //$id_user = $request->input('id_user');
+        //dd(['id_user' => $id_user, 'id_products' => $id_products]);
+        //dd($request->all());
+        //dd($request->input('id_products'),$request->input('id_user'));
+        //$id_products = $request->input('id_products');
+        //$id_user = $request->input('id_user');
+        //DB::insert('insert into basket(id_user,id_products) values (?, ?)',[$id_user,$id_products]);
+
+        //$arr = json_decode($request->all());
+        //dump($arr);
         }
     public function store(Request $request,$id){
         $products=Product::
@@ -82,7 +98,7 @@ class ProductController extends Controller
         $id_products = $request->input('id_products');
         $id_user = $request->input('id_user');
         $data = ['id_user' => $id_user, 'id_products' => $id_products, 'products' =>$products];
-        return $data;
+        //return $data;
         //return view('representation/product_detail')->with(['products'=>$products]);
 
         dump($products);

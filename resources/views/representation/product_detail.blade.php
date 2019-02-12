@@ -151,7 +151,7 @@
                                                 Add to cart
                                             </button>
 
-                                            <button id="save" type="button">
+                                            <button id="save" type="button" onclick="send()">
                                                 fggfgdf
                                             </button>
 
@@ -160,7 +160,8 @@
                                 </div>
                             </form>
 
-                            <form id="contactform" action="/ajax" method="post">
+
+                            <form id="contactform"  method="post">
                                 {{ csrf_field() }}
 
 
@@ -172,25 +173,41 @@
                                     сохранить1
                                 </button>
                                 <br>
-                                <button id="save" type="button">
+                                <button id="save" type="button" >
                                     fggfgdf1
                                 </button>
                             </form>
 
                             <script>
+
                                 $(document).ready(function(){
                                     $('#contactform').on('submit', function(e){
                                         e.preventDefault();
-
+                                        // var id_user = $('#id_user').val();
+                                        // var id_products = $('#id_products').val();
                                         $.ajax({
                                             type: 'POST',
                                             url: '/ajax',
-                                            data: $('#contactform').serialize(),
+                                             data: $('#contactform').serialize(),
+                                            // data: {
+                                            //         id_products:id_products,
+                                            //         id_user:id_user,
+                                            //     },
+
                                             success: function(result){
+
                                                 console.log(result);
                                                 alert(result);
+                                                //alert(result);
+                                                //$('#msg').html(result);
+                                            },
+                                            error: function (msg) {
+                                                alert('тут ошибочка');
+
                                             }
                                         });
+
+
                                     });
                                 });
                             </script>
