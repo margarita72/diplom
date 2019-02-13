@@ -88,10 +88,10 @@
                             </p>
 
                             <!--  -->
-                            <form action="/shopping" method="post">
+                            <form  method="post" id="contactform">
                                 {{ csrf_field() }}
                                 <input type = "hidden" name = "id_products" value ="{!! $products->id !!}">
-                                <input type = "hidden" name = "id_user" value ="{{Auth::id()}}">
+                                <input type = "hidden" name = "id_user" value ="{{Auth::id()}}" >
 
                                 <div class="p-t-33">
                                     <div class="flex-w flex-r-m p-b-10">
@@ -131,8 +131,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {!! $products->id !!}
-                                    {{Auth::id()}}
                                     <div class="flex-w flex-r-m p-b-10">
                                         <div class="size-204 flex-w flex-m respon6-next">
                                             <div class="wrap-num-product flex-w m-r-20 m-tb-10">
@@ -147,36 +145,47 @@
                                                 </div>
                                             </div>
 
-                                            <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-                                                Add to cart
-                                            </button>
-
-                                            <button id="save" type="button" onclick="send()">
-                                                fggfgdf
-                                            </button>
 
                                         </div>
+
                                     </div>
+                                    {!!
+
+                                    Auth::id();
+                                    if (Auth::check()==true)
+                                    echo '<button id="save" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+                                        Добавить в корзину
+                                    </button>';
+
+                                    else
+                                    echo "что бы добавить товар в корзину вам необходимо авторизоваться";
+
+
+
+                                    !!}
+
+
+
                                 </div>
                             </form>
 
 
-                            <form id="contactform"  method="post">
-                                {{ csrf_field() }}
+                            {{--<form id="contactform"  method="post">--}}
+                                {{--{{ csrf_field() }}--}}
 
 
 
 
-                                <input type = "hidden" name = "id_products" value ="{!! $products->id !!}" id="id_products">
-                                <input type = "hidden" name = "id_user" value ="{{Auth::id()}}" id="id_user">
-                                <button id="save" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-                                    сохранить1
-                                </button>
-                                <br>
-                                <button id="save" type="button" >
-                                    fggfgdf1
-                                </button>
-                            </form>
+                                {{--<input type = "hidden" name = "id_products" value ="{!! $products->id !!}" id="id_products">--}}
+                                {{--<input type = "hidden" name = "id_user" value ="{{Auth::id()}}" id="id_user">--}}
+                                {{--<button id="save" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">--}}
+                                    {{--сохранить1--}}
+                                {{--</button>--}}
+                                {{--<br>--}}
+                                {{--<button id="save" type="button" >--}}
+                                    {{--fggfgdf1--}}
+                                {{--</button>--}}
+                            {{--</form>--}}
 
                             <script>
 
@@ -197,7 +206,7 @@
                                             success: function(result){
 
                                                 console.log(result);
-                                                alert(result);
+                                                //alert(result);
                                                 //alert(result);
                                                 //$('#msg').html(result);
                                             },
@@ -219,43 +228,6 @@
                             <!-- Include all compiled plugins (below), or include individual files as needed -->
 
                             <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-                            <!--скрипт обработки запроса без презагрузки страицы методом ajax-->
-                            <script>
-                                $.ajaxSetup({
-                                    headers: {
-                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                                    }
-                                });
-                                $(function() {
-                                    $('#save').on('click',function(){
-                                        var id_products = $('#id_products').val();
-                                        var id_user = $('#id_user').val();
-                                        $.ajax({
-                                            //url: '{ route('article.store') }}',
-                                            //url: '{ route('product_detail.{id}.store')}}',
-                                            url:'product_detail.{id}.store',
-                                            type: "POST",
-                                            data: {id_products:id_products,id_user:id_user},
-                                            success: function (data) {
-                                                //$("#data1").html(data.data1);
-                                                //$('#addArticle').modal('hide');
-                                                //$('#articles-wrap').removeClass('hidden').addClass('show');
-                                                //$('.alert').removeClass('show').addClass('hidden');
-                                                //var str = '<tr><td>'+data['id']+
-                                                 //   '</td><td><a href="/article/'+data['id']+'">'+data['id_user']+'</a>'+
-                                                 //   '</td><td><a href="/article/'+data['id']+'" class="delete" data-delete="'+data['id']+'">Удалить</a></td></tr>';
-                                                alert(data.success);
-                                                $('.table > tbody:last').append(str);
-                                            },
-                                            error: function (msg) {
-                                                alert('ошибка');
-
-                                            }
-                                        });
-                                    });
-                                })
-                            </script>
-                            <!--  -->
                             <div class="flex-w flex-m p-l-100 p-t-40 respon7">
                                 <div class="flex-m bor9 p-r-10 m-r-11">
                                     <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">

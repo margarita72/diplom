@@ -53,7 +53,9 @@
                 <div class="col-md-6 col-lg-5 p-b-30">
                     <div class="p-r-50 p-t-5 p-lr-0-lg">
                         <h4 class="mtext-105 cl2 js-name-detail p-b-14">
-
+                            @foreach ($productss as $product)
+                                {{ $product->image}}
+                                @endforeach
                             Lightweight Jacket123
                         </h4>
 
@@ -120,7 +122,7 @@
                                     </div>
 
                                     <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-                                        Add to cart
+                                        Add to cart123
                                     </button>
                                 </div>
                             </div>
