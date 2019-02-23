@@ -22,9 +22,9 @@ class ProductController extends Controller
     // страница «index/»
     public function homs(Request $request)
     {
-        $data=$request->all();
-        //dump($data);
-        $productsi = Product::where('id',$request->id)->get();
+//        $data=$request->all();
+//        //dump($data);
+//        $productsi = Product::where('id',$request->id)->get();
 
         $products = DB::table('products')->paginate(15);
         $Categorii_products = DB::table('Categorii_products')->get();
@@ -32,7 +32,31 @@ class ProductController extends Controller
         return view('representation.homs', ['products' => $products,
             'Categorii_products' => $Categorii_products]);
     }
+//ля вывода методом ajax информации о конкретном товаре на гланой странице
+    public function getajaxid(Request $request){
 
+        $id_products = $request->input('id_products');
+        $user = DB::table('products')->where('id', $id_products)->first();
+//        $products2 = Product::get();
+//        $products2=Product::
+//        select(['id','image','name','meta_description','unit_cost','imd_dop'])
+//            ->where('id',$id)->first();
+//        $schhols = Schhol::get();
+
+        // if ajax request return response in json
+
+        if($request->ajax()){
+            return response()->json($user);
+        }else{
+
+            // else return data to view
+
+//            return view('product',compact('products2'));
+            dump($user);
+   }
+
+        dump($user);
+    }
     public function product()
     {
         $products = DB::table('products')->paginate(15);
@@ -63,7 +87,7 @@ class ProductController extends Controller
     public  function send(Request $request){
         $id_products = $request->input('id_products');
         $id_user = $request->input('id_user');
-        DB::insert('insert into basket(id_user,id_products) values (?, ?)',[$id_user,$id_products]);
+        DB::insert('insert into baskets(id_user,id_products) values (?, ?)',[$id_user,$id_products]);
         //dd(['id_user' => $id_user, 'id_products' => $id_products]);
         //dd($request->all());
         //dd($request->input('id_products'),$request->input('id_user'));
@@ -73,6 +97,9 @@ class ProductController extends Controller
     public function tovarform(Request $request){
         $id_products = $request->input('id_products');
         $user = DB::table('products')->where('id', $id_products)->first();
+//        dd($request->all());
+
+
 //        $id_user = $request->input('id_user');
 //        DB::insert('insert into basket(id_user,id_products) values (?, ?)',[$id_user,$id_products]);
 

@@ -250,11 +250,45 @@
                             <div class="block2-pic hov-img0">
                                 <img src="storage\{{ $product->image}}" alt="IMG-PRODUCT" width="1200" height="350">
 
-                                <input type="hidden" name="id_master" value="{{Auth::id()}}">
-                                <a href="{{ $product->id }}" value="{{ $product->id }}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                    Quick View
-                                </a>
+                                <form action="/ajaxid" method="post">
+                                    {{ csrf_field() }}
+                                    <input type = "hidden" id="id_products" name = "id_products" value ="{!! $product->id !!}">
+                                    <input type="hidden" name="id_master" value="{{Auth::id()}}">
+                                    <button type="submit"  id="submit2">ffff</button>
+                                    <button onclick="load()" href="{{ $product->id }}" value="{{ $product->id }}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                                        Quick View
+                                    </button>
+
+                                </form>
+
                             </div>
+
+                            <script>
+                                function load() {
+                                    $.ajax({
+                                        url: '/ajaxid',
+                                        type:'post',
+                                        dataType:'json',
+                                        contentType:'application/json',
+                                        success:function (data){
+                                            $('#data').html("");
+                                            $.each(data, function (key, val) {
+                                                $('#data').append("<tr>"+
+                                                    "<td>"+val.user.id+"</td>"+
+                                                    "<td id='ename'>"+val.user.name+"</td>"+
+                                                    "<td id='eaddress'>"+val.user.address+"</td>"+
+                                                    "<td id='ecountry'>"+val.user.country+"</td>"+
+                                                    "<td>"+
+                                                    "<button class='btn btn-warning' id='edit' data-id="+val.user.id+">Edit</button>"+
+                                                    "<button class='btn btn-danger' id='delete' data-id="+val.user.id+">Delete</button>"
+                                                    +"</td>"+
+                                                    +"</tr>")
+                                            },error:function(err){
+                                                console.log('Error loading data');
+                                            }
+                                        });
+                                }
+                            </script>
 
                             <div class="block2-txt flex-w flex-t p-t-14">
                                 <div class="block2-txt-child1 flex-col-l ">

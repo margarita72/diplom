@@ -25,16 +25,13 @@
                                         <input type = "hidden" name = "id_user" value ="{{Auth::id()}}" >
                                         <div class="block2-pic hov-img0">
                                             <img src="..\storage\{{ $product->image}}" alt="IMG-PRODUCT">
-                                            <button onclick="send()" type="submit2" id="submit2" href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                                            <button onclick="send()" type="submit" id="submit2" href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
                                                 Quick View
 
                                             </button>
-                                            <button  onclick="send2()" id="submit2"  class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                                Quick View2
 
-                                            </button>
 
-                                            <button type="submit2"  id="submit2">ffff</button>
+                                            <button type="submit"  id="submit2">ffff</button>
 
                                             {{--<a href="/ajaxtovarid" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">--}}
                                                 {{--Quick View--}}
@@ -99,10 +96,10 @@
             type: 'POST',
             url: '/ajaxtovarid',
             data: {id_products: id_products},
-            success: function (user) {
+            success: function (data) {
 
-                console.log(user);
-                alert('gggg');
+                console.log(data);
+                alert('Работает');
                 //alert(result);
                 //$('#msg').html(result);
             },
@@ -115,43 +112,37 @@
     }
 </script>
 
-
-<script>
-    function send2() {
-        $("#contactform2").on("click", function(){
-
-
-            alert('123');
-        });
-
-    }
-</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-{{--<script>--}}
-    {{--$(function() {--}}
-        {{--$('#submit2').on('click',function(){--}}
-            {{--var title = $('#title').val();--}}
-            {{--var text = $('#text').val();--}}
-            {{--$.ajax({--}}
-                {{--url: '/ajaxtovarid',--}}
-                {{--type: "POST",--}}
-                {{--data: {title:title,text:text},--}}
-                {{--headers: {--}}
-                    {{--'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')--}}
-                {{--},--}}
-                {{--success: function (data) {--}}
-                    {{--$('#addArticle').modal('hide');--}}
-                    {{--$('#articles-wrap').removeClass('hidden').addClass('show');--}}
-                    {{--$('.alert').removeClass('show').addClass('hidden');--}}
-                    {{--var str = '<tr><td>'+data['id']+--}}
-                        {{--'</td><td><a href="/article/'+data['id']+'">'+data['title']+'</a>'+--}}
-                        {{--'</td><td><a href="/article/'+data['id']+'" class="delete" data-delete="'+data['id']+'">Удалить</a></td></tr>';--}}
-                    {{--$('.table > tbody:last').append(str);--}}
-                {{--},--}}
-                {{--error: function (msg) {--}}
-                    {{--alert('Ошибка');--}}
-                {{--}--}}
-            {{--});--}}
-        {{--});--}}
-    {{--})--}}
-{{--</script>--}}
+<script>
+
+    $(document).ready(function(){
+        $('#contactform2').on('ifClicked', function(e2){
+            e2.preventDefault();
+            // var id_user = $('#id_user').val();
+            // var id_products = $('#id_products').val();
+            $.ajax({
+                type: 'POST',
+                url: 'ajaxtovarid',
+                data: $('#contactform2').serialize(),
+                // data: {
+                //         id_products:id_products,
+                //         id_user:id_user,
+                //     },
+
+                success: function(result){
+
+                    console.log(result);
+                    //alert(result);
+                    //alert(result);
+                    //$('#msg').html(result);
+                },
+                error: function (msg) {
+                    alert('тут ошибочка12');
+
+                }
+            });
+
+
+        });
+    });
+</script>
