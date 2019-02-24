@@ -73,7 +73,16 @@
                                document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    <a href="/shopping">
+
+
+
+
+
+
+
+                                </li>
+                                <li>
+                                    <a href="/basket">
                                         {{__('Корзина')}}
                                     </a>
                                 </li>

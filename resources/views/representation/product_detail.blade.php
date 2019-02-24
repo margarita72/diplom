@@ -92,6 +92,7 @@
                                 {{ csrf_field() }}
                                 <input type = "hidden" name = "id_products" value ="{!! $products->id !!}">
                                 <input type = "hidden" name = "id_user" value ="{{Auth::id()}}" >
+                                <input type = "hidden" name = "UnitPrice" value ="{!! $products->unit_cost !!}" >
 
                                 <div class="p-t-33">
                                     <div class="flex-w flex-r-m p-b-10">
@@ -211,7 +212,7 @@
                                                 //$('#msg').html(result);
                                             },
                                             error: function (msg) {
-                                                alert('тут ошибочка');
+                                                alert('тут ошибочка585');
 
                                             }
                                         });

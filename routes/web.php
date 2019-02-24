@@ -38,9 +38,8 @@ Route::resource('/product_detail/{id}', 'ProductController', ['only' =>['store',
 Route::post('/ajax', 'ProductController@send');
 Route::post('/ajaxtovarid', 'ProductController@tovarform');
 Route::post('/shopping', 'ProductController@insert'); //контролер на добавление тавара в корзину
-Route::get('/shopping', function () {
-    return view('representation/shopping_cart');
-});
+
+Route::get('/basket', 'BasketController@basket');
 Route::get('/index', function () {
     return view('home');
 });
