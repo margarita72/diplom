@@ -91,7 +91,7 @@
                             <form  method="post" id="contactform">
                                 {{ csrf_field() }}
                                 <input type = "hidden" name = "id_products" value ="{!! $products->id !!}">
-                                <input type = "hidden" name = "id_user" value ="{{Auth::id()}}" >
+                                <input type = "hidden" name = "id_user" value ="{{Auth::id()}}">
                                 <input type = "hidden" name = "UnitPrice" value ="{!! $products->unit_cost !!}" >
 
                                 <div class="p-t-33">
@@ -212,7 +212,9 @@
                                                 //$('#msg').html(result);
                                             },
                                             error: function (msg) {
-                                                alert('тут ошибочка585');
+
+                                                alert('тут ошибочкаwerftghjkl');
+
 
                                             }
                                         });

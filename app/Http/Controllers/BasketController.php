@@ -14,8 +14,8 @@ class BasketController extends Controller
 
         $baskets = Basket::
         select(['id','id_user','id_products','UnitPrice','quantity'])
-            ->where('id', $id_user)
-            ->pluck('id_user');;
+            ->where('id_user', $id_user)
+            ->pluck('id_user','id_products','UnitPrice','quantity');
         dump($baskets);
 
         return view('representation/shopping_cart', ['baskets' => $baskets]);

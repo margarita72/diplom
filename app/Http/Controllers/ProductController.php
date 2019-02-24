@@ -85,14 +85,19 @@ class ProductController extends Controller
     }
 
     public  function send(Request $request){
-        $id_products = $request->input('id_products');
         $id_user = $request->input('id_user');
+        $id_products = $request->input('id_products');
         $UnitPrice = $request->input('UnitPrice');
         $quantity = $request->input('num-product');
         $final_price = $UnitPrice*$quantity;
-        dump($final_price);
-        DB::insert('insert into baskets(id_user,id_products,UnitPrice,quantity,final_price) values (?, ?, ?, ?, ?)',
-            [$id_user,$id_products,$UnitPrice, $quantity, $final_price]);
+        $created_at = date('Y-m-d H:i:s');
+        //dump($final_price);
+    //  DB::insert('insert into baskets(id_user,id_products) values (?, ?)',[$id_user,$id_products]);
+
+        DB::insert('insert into basket(id_user,id_products,UnitPrice,quantity,final_price,created_at ) values (?, ?, ?, ?, ?, ?)',
+            [$id_user,$id_products,$UnitPrice, $quantity, $final_price,$created_at]);
+
+
         //dd(['id_user' => $id_user, 'id_products' => $id_products]);
         //dd($request->all());
         //dd($request->input('id_products'),$request->input('id_user'));
