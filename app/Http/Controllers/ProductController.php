@@ -10,6 +10,9 @@ use App\Http\Controllers\product_id;
 use App\Http\Controllers\product_detail;
 use App\Http\Controllers\home_my;
 use App\Article;
+//use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Redirect;
 
 
 
@@ -57,11 +60,14 @@ class ProductController extends Controller
 
         dump($user);
     }
-    public function product()
+    public function product(Request $request)
     {
         $products = DB::table('products')->paginate(15);
         $Categorii_products = DB::table('Categorii_products')->get();
         return view('representation/product', ['products' => $products, 'Categorii_products' => $Categorii_products]);
+
+
+
     }
 
     public function index($id){
@@ -194,5 +200,28 @@ class ProductController extends Controller
             ->where('id',$id)->first();
         //dump($products);
         return view('items/product_id')->with(['products'=>$products]);
+    }
+
+    public function search(Request $request){
+        $searchData = $request->searchData;
+
+        //dump($searchData);
+
+
+        $products = DB::table('products')
+            //->orWhere('name','like','%'.$searchData.'%')
+            ->join('suppliers', 'id_suppliers', '=', 'suppliers.id')
+            ->join('categories', 'id_category', '=', 'categories.id')
+            ->orWhere('suppliers.name','like','%'.$searchData.'%')
+            ->orWhere('categories.name','like','%'.$searchData.'%')
+            ->orWhere('meta_description','like','%'.$searchData.'%')
+            ->orWhere('products.name','like','%'.$searchData.'%')
+            ->get();
+        $Categorii_products = DB::table('Categorii_products')->get();
+        return view('representation/product', [
+            'products' => $products,
+            'Categorii_products' => $Categorii_products
+        ]);
+
     }
 }

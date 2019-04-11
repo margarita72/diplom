@@ -15,6 +15,8 @@ Route::match(['get', 'post'],'/', 'ProductController@homs')->name('product_id');
 Route::post('/ajaxid', 'ProductController@getajaxid');
 Route::get('/product', 'ProductController@product');
 Route::get('/product/{id}', 'ProductController@product_id');
+Route::get('/search', 'ProductController@search');
+Route::get('user-lists', 'SearchUserController@userList')->name('user-lists');
 Route::get('/homs', function () {
     return view('representation/homs');
 });
@@ -50,6 +52,8 @@ Route::get('/primers', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
 
 
 
