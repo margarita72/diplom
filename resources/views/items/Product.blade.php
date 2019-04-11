@@ -2,6 +2,11 @@
     <div class="container">
             @yield('product_overview')
 
+<<<<<<< HEAD
+=======
+<h1>Каталог товаров</h1>
+        <h2>
+>>>>>>> 258800f... поиск но еще не доконца
 
 
 
@@ -38,7 +43,7 @@
                     <i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
                     Filter
                 </div>
-
+                <!-- Поиск товара -->
                 <div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
                     <i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
                     <i class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
@@ -696,6 +701,7 @@
                 </div>
             </div>
 
+<<<<<<< HEAD
             <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item watches">
                 <!-- Block2 -->
                 <div class="block2">
@@ -759,6 +765,8 @@
                     </div>
                 </div>
             </div>
+=======
+>>>>>>> 258800f... поиск но еще не доконца
         </div>
 
         <!-- Load more -->
