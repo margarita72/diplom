@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+<<<<<<< HEAD
 use App\Basket;
 use App\Product;
 use Illuminate\Http\Request;
@@ -224,4 +225,12 @@ class ProductController extends Controller
         ]);
 
     }
+=======
+
+use Illuminate\Http\Request;
+
+class ProductController extends Controller
+{
+    //
+>>>>>>> master
 }

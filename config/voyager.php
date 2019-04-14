@@ -161,9 +161,14 @@ return [
 
         'widgets' => [
             'TCG\\Voyager\\Widgets\\UserDimmer',
+            'App\\Widgets\\Products',
             'TCG\\Voyager\\Widgets\\PostDimmer',
             'TCG\\Voyager\\Widgets\\PageDimmer',
+<<<<<<< HEAD
             'App\\Widgets\\Products'
+=======
+
+>>>>>>> master
         ],
 
     ],

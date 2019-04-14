@@ -2,6 +2,7 @@
 
 namespace App;
 
+<<<<<<< HEAD
 use Illuminate\Notifications\Notifiable;
 use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
@@ -29,4 +30,11 @@ class Product extends Model
 
     protected $table='products';
 
+=======
+use Illuminate\Database\Eloquent\Model;
+
+class Product extends Model
+{
+    //
+>>>>>>> master
 }
