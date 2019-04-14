@@ -9,7 +9,7 @@
             <div class="content-topbar flex-sb-m h-full container">
                 <div class="left-top-bar">
 
-                    Добро пожаловать
+                    Добро пожаловать)))
 
                 </div>
 
