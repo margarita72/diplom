@@ -1,0 +1,397 @@
+[33mcommit 2193fe5bfce242ed7b4d9d887f041dd031adebd8[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sun Apr 14 23:34:56 2019 +0500
+
+    123
+
+[33mcommit 56d58b92592e808dc3cb3857041e9a330f13f053[m[33m ([m[1;36mHEAD -> [m[1;32mmya[m[33m)[m
+Merge: 258800f 094677a
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sun Apr 14 23:24:13 2019 +0500
+
+    123
+
+[33mcommit 258800f9d18be7b0f6cd5408e163559a22909a35[m[33m ([m[1;31morigin/mya[m[33m)[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Thu Apr 11 23:42:58 2019 +0500
+
+    поиск но еще не доконца
+
+[33mcommit f1de74486e2cd45889163edd9a003eb09ad1534a[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sun Feb 24 21:27:34 2019 +0500
+
+    basket вывод данных
+
+[33mcommit 380b88ef22508b0b242e888a2bd1240b398294de[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sun Feb 24 19:50:51 2019 +0500
+
+    исправление ошибок 2
+
+[33mcommit 9a7c2679b04fba3ebd42a264d6eb928310117441[m[33m ([m[1;35mrefs/stash[m[33m)[m
+Merge: a9f4187 bfb028c
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sun Feb 24 14:29:16 2019 +0500
+
+    On (no branch): Uncommitted changes before Checkout at 24.02.2019 14:29
+
+[33mcommit bfb028cb729ca329d26df0e13a09c7c4600cff70[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sun Feb 24 14:29:12 2019 +0500
+
+    index on (no branch): a9f4187 My message
+
+[33mcommit a9f41877e28482150c7e7073de51c876c2fa47ef[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sun Feb 24 14:28:17 2019 +0500
+
+    My message
+
+[33mcommit e7e5bb075bddf5c7dfeb6755b726912ebbfb3ac6[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sun Feb 24 14:11:34 2019 +0500
+
+    nen yt nfr
+
+[33mcommit e24683ed98dc265ccbe7c650250a9f536815c51b[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sat Feb 23 21:28:47 2019 +0500
+
+    испраление ошибок при авторизации
+
+[33mcommit 65c0f58d85e87e80c1b914e6a58cd8b33df55859[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Wed Feb 13 20:50:04 2019 +0500
+
+    ajax 2
+
+[33mcommit bc6b631fb6ecc88586e757f5de6f621be643d368[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Tue Feb 12 22:22:13 2019 +0500
+
+    ajax bd basket
+
+[33mcommit cf257b90a862f3c67d62d1f158e146ad26598b53[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Mon Jan 28 17:17:28 2019 +0500
+
+    ajax2
+
+[33mcommit ca9e876f3a94f19746ffb7058e54e121da43e32a[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sun Jan 27 22:51:14 2019 +0500
+
+    ajax1
+
+[33mcommit 595301fd3911965ec39ff74e8f715c3d09b7627c[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sat Jan 26 19:32:56 2019 +0500
+
+    post корзина
+
+[33mcommit 5bc61cf9abc74db64b5fd434bd825100cba5f062[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sat Jan 12 11:28:20 2019 +0500
+
+    Related Products
+
+[33mcommit 9b0256be28df1c845ea01992f5cd8017e34d5704[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sat Jan 12 10:48:33 2019 +0500
+
+    product detal
+
+[33mcommit 5f6f789260bb3d41432b4853b4426c680ad92c3c[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sat Jan 12 10:27:27 2019 +0500
+
+    mya commit
+
+[33mcommit 433dce8260956e8d2833159fb2dbc05bb36907fc[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sun Jan 6 22:06:14 2019 +0500
+
+    massive img product-detal
+
+[33mcommit 47abb68dca67ff7cfe82a14114c59cbdf85199a6[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sun Jan 6 02:05:28 2019 +0500
+
+    id ptoduct view3
+
+[33mcommit 36ee14fdb62474b342d2fc06c4c907f77afb611c[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sun Jan 6 00:11:42 2019 +0500
+
+    id ptoduct view
+
+[33mcommit a7b8725b1f802977f981cc06b7656cd4a76ec29a[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sat Jan 5 15:18:56 2019 +0500
+
+    filter product2
+
+[33mcommit dc81ffad417354bf21058e41dc6bdcf6529a38dd[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sat Jan 5 15:13:29 2019 +0500
+
+    filter product
+
+[33mcommit c4e02a84129613899e3d37a56809d38dbacb48d2[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Fri Jan 4 22:20:53 2019 +0500
+
+    conclusion database products
+
+[33mcommit e1bd0cff9c2809ca2ea29b5151fc663418749b89[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Fri Jan 4 20:46:15 2019 +0500
+
+    producte blade admin
+
+[33mcommit 866e6e3006433a45623793b3f3fb8e29826827be[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Fri Jan 4 18:00:16 2019 +0500
+
+    product voyager vidgest
+
+[33mcommit 1833bffbb7e1a74de9dd198fed63559ccc5bb05f[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Fri Jan 4 17:11:30 2019 +0500
+
+    product voyager
+
+[33mcommit c75220c40dfcecc23195e2c738ca8f5d36df9da3[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Fri Jan 4 16:36:20 2019 +0500
+
+    SLIDER voyager
+
+[33mcommit f5ca7aadb10d5c72154790226a0b6d4ff9134868[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Fri Jan 4 12:05:47 2019 +0500
+
+    mya commit
+
+[33mcommit 094677aad6472146950bf2a64c95b1832ab83402[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Wed Jan 2 20:57:08 2019 +0500
+
+    guyhjj
+
+[33mcommit 98c0b5fb23695950a5764d628e133daedcadd140[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Tue Jan 1 21:12:19 2019 +0500
+
+    Overriding Views
+
+[33mcommit c5ec5f8e80c5edb96d35353c5e67d4d10d48d70b[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Mon Dec 31 22:19:37 2018 +0500
+
+    menu at choice radiobutton voyager
+
+[33mcommit c8579b1d9c88ee118afb468f65479c158acf1bfd[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Mon Dec 31 21:07:11 2018 +0500
+
+    menu administration voyager
+
+[33mcommit 09514666e2e505d2c1c69734ba027b5b908b9eac[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Mon Dec 31 17:32:54 2018 +0500
+
+    database produkt zapoln
+
+[33mcommit a8ad34a8e53b1e43555a115e8b3e7fb8a1b247c9[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sun Dec 30 22:31:35 2018 +0500
+
+    database admin menu product2
+
+[33mcommit fc618a7b27c9a375f1e99b30e93de1d8c39d886c[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sun Dec 30 22:01:43 2018 +0500
+
+    database admin menu product
+
+[33mcommit 139a7a75748a290e247c4559947fca6a9454fcd5[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sun Dec 30 19:20:14 2018 +0500
+
+    database products orders suppliers migrations
+
+[33mcommit 4892a139996ebc1b8fd48e1b528b5f87f73d0e55[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sun Dec 30 16:45:34 2018 +0500
+
+    memu voyager
+
+[33mcommit 120b08994f9c6d8f7987db4562faf7afcc36454f[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sun Dec 30 16:30:31 2018 +0500
+
+    menu without handler
+
+[33mcommit 7913b2f9a11e1a35a34ab8f94da5bf7831e93a56[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Fri Dec 28 22:29:48 2018 +0500
+
+    menu admin
+
+[33mcommit 653fb2f4e5fdc7c7d960cf83223f17b86707073b[m[33m ([m[1;31morigin/margo[m[33m, [m[1;32mmargo[m[33m)[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Fri Dec 28 22:25:30 2018 +0500
+
+    mea menu admin
+
+[33mcommit 8b0f1505a0eb2dc97ae163df40197b3692f23702[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Fri Dec 28 22:22:33 2018 +0500
+
+    menu admin
+
+[33mcommit 7c51a713b145e9b11db6f198cd9e7665838a4fe9[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Fri Dec 28 22:19:54 2018 +0500
+
+    menu admin voyager
+
+[33mcommit 8bd0201b370f625849c4208d00dec42f6039f8e9[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Thu Dec 27 21:02:31 2018 +0500
+
+    Creating a Voyager Hook
+
+[33mcommit ccfa56dad4e21b70a631ddab9ef0593506d08dce[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sat Dec 15 20:55:22 2018 +0500
+
+    voyager laravel admin instal
+
+[33mcommit 2e663bfd834c225dc0c680eee423205e4c8c61a4[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sat Dec 15 20:01:20 2018 +0500
+
+    before login admin
+
+[33mcommit 3aa93adca0f230ab89d35d15148a205c8d028f27[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Mon Nov 26 19:22:44 2018 +0500
+
+    js login on home screen
+
+[33mcommit 4f2f7a3a8601431ffa4fe986b9b07772086757c8[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sun Nov 25 20:25:15 2018 +0500
+
+    new authorization form2
+
+[33mcommit 758dd0c69c23561fe6643213123a00c8e42b153e[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sun Nov 25 18:28:00 2018 +0500
+
+    new authorization form
+
+[33mcommit bfbf75e0c831e5bea4dc2300cc2bd05a627a7534[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sat Nov 24 22:41:22 2018 +0500
+
+    правильныйс
+
+[33mcommit 9cca8301c76384ec31bd0504ac6f4af046919a17[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sat Nov 24 22:38:15 2018 +0500
+
+    правильный
+
+[33mcommit 786d9f3355d27b3c703098d84f694cdb8a78140b[m[33m ([m[1;32mrita[m[33m)[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sat Nov 24 22:08:45 2018 +0500
+
+    неправильный
+
+[33mcommit 4befa856ce8d23cff99b40f50454fb104dbec2a9[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Fri Nov 23 11:21:51 2018 +0500
+
+    сновная структура
+
+[33mcommit 6f41840ec2a23382cdf92f6e8e295845ff5be36e[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Fri Nov 23 09:09:51 2018 +0500
+
+    новые вьюшки
+
+[33mcommit 755a237069311e9ffd87f7078060277e72d96ee5[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Thu Nov 22 21:53:22 2018 +0500
+
+    new structure
+
+[33mcommit 5409ecbaac10c61632704ec6540803eedf7a2a30[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Mon Nov 19 22:12:55 2018 +0500
+
+    yield one
+
+[33mcommit 91126aa6716b725ca9f274cbb99f0cbef76bd544[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sun Nov 18 21:03:58 2018 +0500
+
+    @guest
+
+[33mcommit d617905db8c34888912cd7e2323d48e172efa701[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Thu Nov 15 10:46:59 2018 +0500
+
+    регестрация и авторизация
+
+[33mcommit ee7e68f11290006a195de1b6722f26cea036eb9d[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Wed Nov 14 16:16:45 2018 +0500
+
+    добавление главной страницы
+
+[33mcommit a2dac1af96715a04de8a6d799892260d6465874f[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Wed Nov 14 06:54:52 2018 +0500
+
+    пока еще структура
+
+[33mcommit cdc4778c692857412ab66a44bdc26e0969d8f6f9[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Mon Nov 12 22:13:31 2018 +0500
+
+    моя верска
+
+[33mcommit f3296320521e98019f62f8b247c181ceab2a9531[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Mon Nov 12 15:13:57 2018 +0500
+
+    part main page
+
+[33mcommit cb5fb54851b81639b102f858666c5af0c8b2dc07[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Mon Nov 12 14:25:09 2018 +0500
+
+    hedear opisanie
+
+[33mcommit 0b1e4331c9a6dd9aa040ec657494ed59fa7144d1[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sun Nov 11 21:52:04 2018 +0500
+
+    vtor
+
+[33mcommit c26f6a5f203da9ee6fd34c0c0afc7743df919c86[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sun Nov 11 21:49:58 2018 +0500
+
+    vtor
+
+[33mcommit aae7b0055e1611d464ac140dfa8e969d8493d91d[m
+Author: Margo <rita.yurtina@mail.ru>
+Date:   Sun Nov 11 21:38:35 2018 +0500
+
+    first commit
