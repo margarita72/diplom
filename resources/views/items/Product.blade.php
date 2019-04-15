@@ -108,7 +108,7 @@
 
                             <li class="p-b-6">
                                 <a href="#" class="filter-link stext-106 trans-04">
-                                    $0.00 - $50.00
+                                    $0.00 - $50.000
                                 </a>
                             </li>
 
