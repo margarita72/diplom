@@ -42,8 +42,10 @@
                     <button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
                         <i class="zmdi zmdi-search"></i>
                     </button>
+                    <form action="{{url('search')}}">
+                        <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="searchData" placeholder="Search">
+                    </form>
 
-                    <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search-product" placeholder="Search">
                 </div>
             </div>
 
@@ -254,7 +256,7 @@
                                     {{ csrf_field() }}
                                     <input type = "hidden" id="id_products" name = "id_products" value ="{!! $product->id !!}">
                                     <input type="hidden" name="id_master" value="{{Auth::id()}}">
-                                    <button type="submit"  id="submit2">ffff</button>
+
                                     <button onclick="load()" href="{{ $product->id }}" value="{{ $product->id }}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
                                         Quick View
                                     </button>
