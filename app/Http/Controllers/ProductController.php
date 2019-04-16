@@ -216,7 +216,26 @@ class ProductController extends Controller
             ->orWhere('categories.name','like','%'.$searchData.'%')
             ->orWhere('meta_description','like','%'.$searchData.'%')
             ->orWhere('products.name','like','%'.$searchData.'%')
+            ->select([
+                'id'=>'products.id',
+                'id_suppliers'=>'products.id_suppliers',
+                'id_category'=>'products.id_category',
+                'name' => 'products.name',
+                'unit_cost'=>'products.unit_cost',
+                'meta_description'=>'products.meta_description',
+                'meta_keywords'=>'products.meta_keywords',
+                'image'=>'products.image',
+                'imd_dop'=>'products.imd_dop',
+                'created_at'=>'products.created_at',
+                'updated_at'=>'products.updated_at',
+                'email'=>'suppliers.email',
+                'address'=>'suppliers.address',
+                'phone'=>'suppliers.phone',
+
+                ])
+
             ->get();
+        //dump($products);
         $Categorii_products = DB::table('Categorii_products')->get();
         return view('representation/product', [
             'products' => $products,
