@@ -1,11 +1,10 @@
+@include('items.ourJs')
+
 <section class="bg0 p-t-23 p-b-140">
     <div class="container">
             @yield('product_overview')
 
 <h1>Каталог товаров</h1>
-        <h2>
-
-        </h2>
 
 
         <div class="flex-w flex-sb-m p-b-52">
@@ -23,6 +22,16 @@
             </div>
 
             <div class="flex-w flex-c-m m-tb-10">
+                <!--фильтровать по полярности-->
+                    <select class="filter flex-c-m stext-106 cl6 size-104 bor4 pointer  trans-04 m-r-8 m-tb-4 " name="selectThis" id="selectThis">
+                        <option value="">без сортировки</option>
+                        <option value=".option1" >По цене, сначала дешевые</option>
+                        <option value=".option2" >По цене, сначала дорогие</option>
+                        <option value=".option3">По популярности</option>
+                        <option value=".option4">По названию, A-Z</option>
+                        <option value=".option5">По названию, Z-A</option>
+                    </select>
+
                 <div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
                     <i class="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>
                     <i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
@@ -54,51 +63,32 @@
                 <div class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
                     <div class="filter-col1 p-r-15 p-b-27">
                         <div class="mtext-102 cl2 p-b-15">
-                            Sort By
+                            Sort By - Производитель
                         </div>
 
                         <ul>
-                            <li class="p-b-6">
+
+
+                            @foreach($suppliers as $supplier)
+                            <li class="p-b-6" id="supplier{{ $supplier->id }}" value="{{ $supplier->id }}">
                                 <a href="#" class="filter-link stext-106 trans-04">
-                                    Default
+                                    {{ $supplier->name }}
                                 </a>
                             </li>
+                                @endforeach
 
-                            <li class="p-b-6">
-                                <a href="#" class="filter-link stext-106 trans-04">
-                                    Popularity
-                                </a>
-                            </li>
-
-                            <li class="p-b-6">
-                                <a href="#" class="filter-link stext-106 trans-04">
-                                    Average rating
-                                </a>
-                            </li>
-
-                            <li class="p-b-6">
+                                                        <li class="p-b-6">
                                 <a href="#" class="filter-link stext-106 trans-04 filter-link-active">
                                     Newness
                                 </a>
                             </li>
 
-                            <li class="p-b-6">
-                                <a href="#" class="filter-link stext-106 trans-04">
-                                    Price: Low to High
-                                </a>
-                            </li>
-
-                            <li class="p-b-6">
-                                <a href="#" class="filter-link stext-106 trans-04">
-                                    Price: High to Low
-                                </a>
-                            </li>
                         </ul>
                     </div>
 
                     <div class="filter-col2 p-r-15 p-b-27">
                         <div class="mtext-102 cl2 p-b-15">
-                            Price
+                            Price - Цена
                         </div>
 
                         <ul>
@@ -210,36 +200,31 @@
 
                     <div class="filter-col4 p-b-27">
                         <div class="mtext-102 cl2 p-b-15">
-                            Tags
+                            Tags - Применение
                         </div>
 
                         <div class="flex-w p-t-4 m-r--5">
+                            @foreach($Tags as $Tag)
                             <a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                                Fashion
+                                {{ $Tag->name }}
                             </a>
+                            @endforeach
 
-                            <a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                                Lifestyle
-                            </a>
 
-                            <a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                                Denim
-                            </a>
-
-                            <a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                                Streetstyle
-                            </a>
-
-                            <a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                                Crafts
-                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
+
+
+
+
+
+
         <div class="row isotope-grid">
+            <div id="productData">
             <form action="post" action="{{route('product_id')}}">
 
                 @foreach ($products as $product)
@@ -248,6 +233,7 @@
 
                     <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item {{ $product->id_category }}">
                         <!-- Block2 -->
+
                         <div class="block2">
                             <div class="block2-pic hov-img0">
                                 <img src="storage\{{ $product->image}}" alt="IMG-PRODUCT" width="1200" height="350">
@@ -313,8 +299,10 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 @endforeach
+
                 {{ csrf_field() }}
             </form>
 

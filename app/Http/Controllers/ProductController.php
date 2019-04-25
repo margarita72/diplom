@@ -23,18 +23,7 @@ class ProductController extends Controller
      * Вывести все.
          */
     // страница «index/»
-    public function homs(Request $request)
-    {
-//        $data=$request->all();
-//        //dump($data);
-//        $productsi = Product::where('id',$request->id)->get();
 
-        $products = DB::table('products')->paginate(15);
-        $Categorii_products = DB::table('Categorii_products')->get();
-        //dump($products);
-        return view('representation.homs', ['products' => $products,
-            'Categorii_products' => $Categorii_products]);
-    }
 //ля вывода методом ajax информации о конкретном товаре на гланой странице
     public function getajaxid(Request $request){
 
@@ -60,15 +49,7 @@ class ProductController extends Controller
 
         dump($user);
     }
-    public function product(Request $request)
-    {
-        $products = DB::table('products')->paginate(15);
-        $Categorii_products = DB::table('Categorii_products')->get();
-        return view('representation/product', ['products' => $products, 'Categorii_products' => $Categorii_products]);
 
-
-
-    }
 
     public function index($id){
         $products=Product::
@@ -202,6 +183,47 @@ class ProductController extends Controller
         return view('items/product_id')->with(['products'=>$products]);
     }
 
+    public function homs(Request $request)
+    {
+//        $data=$request->all();
+//        //dump($data);
+//        $productsi = Product::where('id',$request->id)->get();
+
+        $products = DB::table('products')->paginate(15);
+        $Categorii_products = DB::table('Categorii_products')->get();
+        //dump($products);
+        $suppliers = DB::table('suppliers')->get();
+        $Tags = DB::table('Tags')->get();
+        //dump($suppliers);
+        return view('representation.homs',
+            [
+                'products' => $products,
+                'Categorii_products' => $Categorii_products,
+                'suppliers' => $suppliers,
+                'Tags'=>$Tags
+
+            ]);
+    }
+
+    public function product(Request $request)
+    {
+        $products = DB::table('products')->paginate(15);
+        $Categorii_products = DB::table('Categorii_products')->get();
+        $suppliers = DB::table('suppliers')->get();
+        $Tags = DB::table('Tags')->get();
+        //dump($suppliers);
+        return view('representation/product',
+            [
+                'products' => $products,
+                'Categorii_products' => $Categorii_products,
+                'suppliers' => $suppliers,
+                'Tags'=>$Tags
+            ]);
+
+
+
+    }
+
     public function search(Request $request){
         $searchData = $request->searchData;
 
@@ -237,10 +259,37 @@ class ProductController extends Controller
             ->get();
         //dump($products);
         $Categorii_products = DB::table('Categorii_products')->get();
+        $suppliers = DB::table('suppliers')->get();
+        $Tags = DB::table('Tags')->get();
         return view('representation/product', [
             'products' => $products,
-            'Categorii_products' => $Categorii_products
+            'Categorii_products' => $Categorii_products,
+            'suppliers' => $suppliers,
+            'Tags'=>$Tags
         ]);
 
+    }
+
+    //для фильтра
+
+    public function productsSuppliers(Request $request){
+         $sup_id=$request->sup_id;
+
+          $data = DB::table('products')
+             ->join('suppliers', 'id_suppliers', '=', 'suppliers.id')
+             ->join('categories', 'id_category', '=', 'categories.id')
+             ->where('products.id_suppliers',$sup_id)
+             ->get();
+        $Categorii_products = DB::table('Categorii_products')->get();
+        $suppliers = DB::table('suppliers')->get();
+        $Tags = DB::table('Tags')->get();
+
+         return view('items/Product', [
+             'products' => $data,
+             'Categorii_products' => $Categorii_products,
+             'suppliers' => $suppliers,
+             'Tags'=>$Tags
+         ]);
+         //dump($data);
     }
 }

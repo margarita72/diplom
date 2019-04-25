@@ -14,6 +14,7 @@
 Route::match(['get', 'post'],'/', 'ProductController@homs')->name('product_id');
 Route::post('/ajaxid', 'ProductController@getajaxid');
 Route::get('/product', 'ProductController@product');
+Route::get('/product_detail/{id}', 'ProductController@product_id');
 Route::get('/product/{id}', 'ProductController@product_id');
 Route::get('/search', 'ProductController@search');
 Route::get('user-lists', 'SearchUserController@userList')->name('user-lists');
@@ -40,6 +41,9 @@ Route::resource('/product_detail/{id}', 'ProductController', ['only' =>['store',
 Route::post('/ajax', 'ProductController@send');
 Route::post('/ajaxtovarid', 'ProductController@tovarform');
 Route::post('/shopping', 'ProductController@insert'); //контролер на добавление тавара в корзину
+
+//ajax Sort By - Производитель id
+Route::get('/productsSuppliers', 'ProductController@productsSuppliers');
 
 Route::get('/basket', 'BasketController@basket');
 Route::get('/index', function () {
