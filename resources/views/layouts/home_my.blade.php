@@ -36,13 +36,52 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="../vendor/perfect-scrollbar/perfect-scrollbar.css">
     <!--===============================================================================================-->
+    <!--для фильтра по цене-->
+    <link href="../components/jquery-ui.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+        $( function() {
+            $( "#slider-range" ).slider({
+                range: true,
+                min: 10,
+                max: 50000,
+                values: [ 1000, 5000 ],
+                slide: function( event, ui ) {
+                    $( "#amount" ).val( "₽" + ui.values[ 0 ] + " - ₽" + ui.values[ 1 ] );
+                }
+            });
+            $( "#amount" ).val( "₽" + $( "#slider-range" ).slider( "values", 0 ) +
+                " - ₽" + $( "#slider-range" ).slider( "values", 1 ) );
+        } );
+    </script>
+    <script>
+        $( function() {
+            $( "#speed" ).selectmenu();
+
+            $( "#files" ).selectmenu();
+
+            $( "#number" )
+                .selectmenu()
+                .selectmenu( "menuWidget" )
+                .addClass( "overflow" );
+
+            $( "#salutation" ).selectmenu();
+        } );
+    </script>
+    <!--=================================================-->
     <link rel="stylesheet" type="text/css" href="../css/util.css">
     <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/filter.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
     <!--===============================================================================================-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--==========================================================================================-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     @yield('class')
+
 </head>
 <body class="animsition">
 
@@ -409,6 +448,13 @@
 </script>
 <!--===============================================================================================-->
 <script src="../js/main.js"></script>
+<!--для ползунка цены-->
+<script src="../components/jquery-ui/jquery.js"></script>
+<script src="../components/jquery-ui.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!--=================================================================================-->
+
 
 </body>
 </html>

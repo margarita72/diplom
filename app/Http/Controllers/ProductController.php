@@ -284,7 +284,7 @@ class ProductController extends Controller
         $suppliers = DB::table('suppliers')->get();
         $Tags = DB::table('Tags')->get();
 
-         return view('items/Product', [
+         return view('items/productsPage', [
              'products' => $data,
              'Categorii_products' => $Categorii_products,
              'suppliers' => $suppliers,

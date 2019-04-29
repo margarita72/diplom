@@ -43,7 +43,7 @@ Route::post('/ajaxtovarid', 'ProductController@tovarform');
 Route::post('/shopping', 'ProductController@insert'); //контролер на добавление тавара в корзину
 
 //ajax Sort By - Производитель id
-Route::get('/productsSuppliers', 'ProductController@productsSuppliers');
+//Route::get('/productsSuppliers', 'ProductController@productsSuppliers');
 
 Route::get('/basket', 'BasketController@basket');
 Route::get('/index', function () {

@@ -1,5 +1,5 @@
 @extends('layouts.home_my')
-@section('title','home')
+@section('title','home12')
 
 
         @section('slider')

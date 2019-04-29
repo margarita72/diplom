@@ -18,10 +18,17 @@
 <!--===============================================================================================-->
 <script src="vendor/daterangepicker/moment.min.js"></script>
 <script src="vendor/daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="js/jquery.mixitup.js"></script>
 <!--===============================================================================================-->
 <script src="vendor/slick/slick.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/slick-custom.js"></script>
-<!--===============================================================================================-->
+<script src="js/filter.js"></script>
+<script src="js/modernizr.js"></script>
+<!--=========================================для цены фильтра возможно======================================================-->
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<!--====================================================-->
 <script src="vendor/parallax100/parallax100.js"></script>
 <script>
     $('.parallax100').parallax100();
@@ -99,3 +106,6 @@
 </script>
 <!--===============================================================================================-->
 <script src="js/main.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
