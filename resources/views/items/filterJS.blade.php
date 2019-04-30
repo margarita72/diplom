@@ -54,6 +54,13 @@ for (let i=0; i<a.length; i++){
         }else if (Selectvalue == '.option2'){
             mySortDesc('data-sorts');
         }
+        else if (Selectvalue == '.option3') {
+            //alert('gh c');
+            mySortRating('data-rating');
+        }
+        else if (Selectvalue == '.option'){
+            mySortID('data-id');
+        }
     }
 
 </script>
@@ -63,10 +70,11 @@ for (let i=0; i<a.length; i++){
 
     let elem = document.querySelectorAll('#navs');
     console.log(elem);
-    document.querySelector('#knops').onclick = function () {
+    /*document.querySelector('#knops').onclick = function () {
         mySort1('data-sorts');
-    };
+    };*/
     //mySort1('data-sort');
+    /*функция фильтра методом пузырька по увеличению цены*/
     function mySort1(SortType) {
         //alert(SortType);
         let nav1 = document.querySelector('#navs');
@@ -82,6 +90,7 @@ for (let i=0; i<a.length; i++){
             }
         }
     }
+    /*функция фильтра методом пузырька по уменьшению цены*/
     function mySortDesc(SortType) {
         //alert('дорогое');
         let nav1 = document.querySelector('#navs');
@@ -98,6 +107,39 @@ for (let i=0; i<a.length; i++){
         }
     }
 
+    /*функция фильтра методом пузырька по рейтингу*/
+    function mySortRating(SortType) {
+        //alert('дорогое');
+        let nav1 = document.querySelector('#navs');
+        console.log(nav1);
+        for (let i = 0; i < nav1.children.length; i++) {
+            for (let j = i; j < nav1.children.length; j++) {
+
+                if (+nav1.children[i].getAttribute(SortType) < +nav1.children[j].getAttribute(SortType)){
+                    replaceDNode = nav1.replaceChild(nav1.children[j], nav1.children[i]);//перезаписываю элемент
+                    insertAfter(replaceDNode, nav1.children[i]);//вставляю перезаписаный элемент после записанного
+
+                }
+            }
+        }
+    }
+
+    /*функция фильтра методом пузырька по id*/
+    function mySortID(SortType) {
+        //alert(SortType);
+        let nav1 = document.querySelector('#navs');
+        console.log(nav1);
+        for (let i = 0; i < nav1.children.length; i++) {
+            for (let j = i; j < nav1.children.length; j++) {
+
+                if (+nav1.children[i].getAttribute(SortType) > +nav1.children[j].getAttribute(SortType)){
+                    replaceDNode = nav1.replaceChild(nav1.children[j], nav1.children[i]);//перезаписываю элемент
+                    insertAfter(replaceDNode, nav1.children[i]);//вставляю перезаписаный элемент после записанного
+
+                }
+            }
+        }
+    }
 
     function insertAfter(elem, refElem) {
         return refElem.parentNode.insertBefore(elem,refElem.nextSibling)

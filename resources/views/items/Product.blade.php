@@ -25,9 +25,9 @@
 
                 {{--<button id="knops">нажми-ка</button>--}}
                     <select onchange="getSelectvalue();" class="filter flex-c-m stext-106 cl6 size-104 bor4 pointer  trans-04 m-r-8 m-tb-4 " name="selectThis" id="selectThis">
-                        <option value="">без сортировки</option>
-                        <option value=".option1" id="sort-acs25" onclick="mySort()">По цене, сначала дешевые</option>
-                        <option value=".option2"  id="tred">По цене, сначала дорогие</option>
+                        <option value=".option">без сортировки</option>
+                        <option value=".option1" >По цене, сначала дешевые</option>
+                        <option value=".option2" >По цене, сначала дорогие</option>
                         <option value=".option3">По популярности</option>
                         <option value=".option4">По названию, A-Z</option>
                         <option value=".option5">По названию, Z-A</option>
@@ -183,7 +183,7 @@
         <div class="products clearfix" >
             <div id="navs">
                 @foreach ($products as $product)
-                    <div class="product-wrapper" data-sorts="{{ $product->unit_cost }}">
+                    <div class="product-wrapper" data-sorts="{{ $product->unit_cost }}" data-rating="{{ $product->rating }}" data-id="{{ $product->id }}">
                         <div class="product-inner">
                             <div class="product-wrap">
                                 <img src="storage\{{ $product->image}}">
@@ -194,7 +194,7 @@
                                 </div>
                             </div>
                             <div class="product-info">
-                                <h3 class="product-title"><a href="/product_detail/{{ $product->id }}">{{ $product->name}}</a></h3>
+                                <h3 class="product-title"><a href="/product_detail/{{ $product->id }}">{{ $product->id }}{{ $product->name}}</a></h3>
                                 <span class="price">₽{{ $product->unit_cost }}</span>
                             </div>
                         </div>
