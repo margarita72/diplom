@@ -1,11 +1,10 @@
 @include('items.ourJs')
 
-<section class="bg0 p-t-23 p-b-140">
+<section class="bg0 p-t-23 p-b-140" data-page="catalogDB">
     <div class="container">
             @yield('product_overview')
 
 <h1>Каталог товаров</h1>
-
 
         <div class="flex-w flex-sb-m p-b-52">
 
@@ -24,15 +23,17 @@
             <div class="flex-w flex-c-m m-tb-10">
                 <!--фильтровать по полярности-->
 
-
-                    <select class="filter flex-c-m stext-106 cl6 size-104 bor4 pointer  trans-04 m-r-8 m-tb-4 " name="selectThis" id="selectThis">
+                {{--<button id="knops">нажми-ка</button>--}}
+                    <select onchange="getSelectvalue();" class="filter flex-c-m stext-106 cl6 size-104 bor4 pointer  trans-04 m-r-8 m-tb-4 " name="selectThis" id="selectThis">
                         <option value="">без сортировки</option>
-                        <option value=".option1" >По цене, сначала дешевые</option>
-                        <option value=".option2" >По цене, сначала дорогие</option>
+                        <option value=".option1" id="sort-acs25" onclick="mySort()">По цене, сначала дешевые</option>
+                        <option value=".option2"  id="tred">По цене, сначала дорогие</option>
                         <option value=".option3">По популярности</option>
                         <option value=".option4">По названию, A-Z</option>
                         <option value=".option5">По названию, Z-A</option>
                     </select>
+
+
 
                 <div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
                     <i class="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>
@@ -178,100 +179,143 @@
             </div>
         </div>
 
-
-
-
-
-
-
-        <div class="row isotope-grid">
-
-            <form action="post" action="{{route('product_id')}}">
-
+{{--еще вариант--}}
+        <div class="products clearfix" >
+            <div id="navs">
                 @foreach ($products as $product)
-
-
-                    <div id="Container" class="container">
-                        <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item {{ $product->id_category }} mix category-{{ $product->id_suppliers }}" data-myorder="{{$product->id}}">
-                            <!-- Block2 -->
-
-                            <div class="block2">
-                                <div class="block2-pic hov-img0 ">
-                                    <img src="storage\{{ $product->image}}" alt="IMG-PRODUCT" width="1200" height="350">
-
-                                    <form action="/ajaxid" method="post">
-                                        {{ csrf_field() }}
-                                        <input type = "hidden" id="id_products" name = "id_products" value ="{!! $product->id !!}">
-                                        <input type="hidden" name="id_master" value="{{Auth::id()}}">
-
-                                        <button onclick="load()" href="{{ $product->id }}" value="{{ $product->id }}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-                                            Quick View
-                                        </button>
-
-                                    </form>
-
-                                </div>
-
-                                <script>
-                                    function load() {
-                                        $.ajax({
-                                            url: '/ajaxid',
-                                            type:'post',
-                                            dataType:'json',
-                                            contentType:'application/json',
-                                            success:function (data){
-                                                $('#data').html("");
-                                                $.each(data, function (key, val) {
-                                                    $('#data').append("<tr>"+
-                                                        "<td>"+val.user.id+"</td>"+
-                                                        "<td id='ename'>"+val.user.name+"</td>"+
-                                                        "<td id='eaddress'>"+val.user.address+"</td>"+
-                                                        "<td id='ecountry'>"+val.user.country+"</td>"+
-                                                        "<td>"+
-                                                        "<button class='btn btn-warning' id='edit' data-id="+val.user.id+">Edit</button>"+
-                                                        "<button class='btn btn-danger' id='delete' data-id="+val.user.id+">Delete</button>"
-                                                        +"</td>"+
-                                                        +"</tr>")
-                                                },error:function(err){
-                                                    console.log('Error loading data');
-                                                }
-                                            });
-                                    }
-                                </script>
-
-                                <div class="block2-txt flex-w flex-t p-t-14">
-                                    <div class="block2-txt-child1 flex-col-l ">
-                                        <a href="/product_detail/{{ $product->id }}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-
-                                            {{ $product->name}}
-                                            {{ $product->id_category }}
-                                        </a>
-
-                                        <span class="stext-105 cl3">
-                                        ₽{{ $product->unit_cost }}
-                                    </span>
-                                    </div>
-
-                                    <div class="block2-txt-child2 flex-r p-t-3">
-                                        <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                            <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
-                                            <img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
-                                        </a>
-                                    </div>
+                    <div class="product-wrapper" data-sorts="{{ $product->unit_cost }}">
+                        <div class="product-inner">
+                            <div class="product-wrap">
+                                <img src="storage\{{ $product->image}}">
+                                <div class="actions">
+                                    <a href="" class="add-to-cart"></a>
+                                    <a href="" class="quickview"></a>
+                                    <a href="" class="wishlist"></a>
                                 </div>
                             </div>
+                            <div class="product-info">
+                                <h3 class="product-title"><a href="/product_detail/{{ $product->id }}">{{ $product->name}}</a></h3>
+                                <span class="price">₽{{ $product->unit_cost }}</span>
+                            </div>
+                        </div>
 
+                    </div>
+                @endforeach
+            </div>
+
+            {{--<div class="product-wrapper">
+
+                <div>
+                    <div class="product-inner">
+                        <div class="product-wrap">
+                            <img src="https://html5book.ru/wp-content/uploads/2015/10/black-dress.jpg"  class="img-plat">
+                            <div class="actions">
+                                <a href="" class="add-to-cart"></a>
+                                <a href="" class="quickview"></a>
+                                <a href="" class="wishlist"></a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title"><a href="">Маленькое черное платье</a></h3>
+                            <span class="price">₽ 1999</span>
                         </div>
                     </div>
-
-                @endforeach
-
-                {{ csrf_field() }}
-            </form>
-
+                </div>
+            </div>--}}
 
         </div>
 
+
+
+
+    {{--<form action="post" action="{{route('product_id')}}">--}}
+            {{--<div class="row isotope-grid" id="nav">
+
+                    @foreach ($products as $product)
+                        <div id="Container" class="container" data-sort="{{ $product->unit_cost }}">
+                            <div data-sort1="{{ $product->unit_cost }}" class="category-{{ $product->id_suppliers }}">пример {{ $product->id }} - {{ $product->unit_cost }}
+                                <img src="storage\{{ $product->image}}" alt="IMG-PRODUCT" width="120" height="35">
+                                <div>sdfghjkl;</div>
+                            </div>
+                            <!--другой блок-->
+
+                            <div   id="may" class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item {{ $product->id_category }} mix category-{{ $product->id_suppliers }}" data-myorder="{{$product->id}}">
+
+
+
+                                <!-- Block2 -->
+
+                                <div class="block2">
+
+                                    <div class="block2-pic hov-img0 ">
+                                        <img src="storage\{{ $product->image}}" alt="IMG-PRODUCT" width="1200" height="350">
+
+                                        <form action="/ajaxid" method="post">
+                                            {{ csrf_field() }}
+                                            <input type = "hidden" id="id_products" name = "id_products" value ="{!! $product->id !!}">
+                                            <input type="hidden" name="id_master" value="{{Auth::id()}}">
+
+                                            <button onclick="load()" href="{{ $product->id }}" value="{{ $product->id }}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                                                Quick View
+                                            </button>
+                                        </form>
+                                    </div>
+                                    <div class="block2-txt flex-w flex-t p-t-14">
+                                            <div class="block2-txt-child1 flex-col-l ">
+                                                <a href="/product_detail/{{ $product->id }}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                                    {{ $product->id}}
+                                                    {{ $product->name}}
+                                                    {{ $product->id_category }}
+                                                </a>
+
+                                                    <span class="stext-105 cl3">
+                                                    ₽{{ $product->unit_cost }}
+                                                    </span>
+                                            </div>
+
+                                            <div class="block2-txt-child2 flex-r p-t-3">
+                                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+                                                    <img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+                                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+                                                </a>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                    {{ csrf_field() }}
+            </div>--}}
+
+    {{--</form>--}}
+
+        @include('items.filterJS')
+        {{--<script>
+            function load() {
+                $.ajax({
+                    url: '/ajaxid',
+                    type:'post',
+                    dataType:'json',
+                    contentType:'application/json',
+                    success:function (data){
+                        $('#data').html("");
+                        $.each(data, function (key, val) {
+                            $('#data').append("<tr>"+
+                                "<td>"+val.user.id+"</td>"+
+                                "<td id='ename'>"+val.user.name+"</td>"+
+                                "<td id='eaddress'>"+val.user.address+"</td>"+
+                                "<td id='ecountry'>"+val.user.country+"</td>"+
+                                "<td>"+
+                                "<button class='btn btn-warning' id='edit' data-id="+val.user.id+">Edit</button>"+
+                                "<button class='btn btn-danger' id='delete' data-id="+val.user.id+">Delete</button>"
+                                +"</td>"+
+                                +"</tr>")
+                        },error:function(err){
+                            console.log('Error loading data');
+                        }
+                    });
+            }
+        </script>--}}
         <!-- Load more -->
 
         @section('Load_more')

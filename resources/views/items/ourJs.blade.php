@@ -59,3 +59,20 @@
         values: [ 17, 67 ]
     });
 </script>
+<!--тут описание фильтра товаров-->
+
+<script>
+
+    //elem.innerHTML = '!!!';
+    //let nav = document.querySelectorAll('#nav');
+
+
+    /*function getSelectvalue() {
+        var Selectvalue = document.getElementById('selectThis').value;
+        console.log(Selectvalue);
+
+        if (Selectvalue =='.option1'){
+            alert('сортировка по цене вниз');
+        }
+    }*/
+</script>

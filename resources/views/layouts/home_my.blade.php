@@ -430,6 +430,7 @@
 
 </script>
 <!--===============================================================================================-->
+<script src="../js/modules/catalogDB.js"></script>
 <script src="../vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 <script>
     $('.js-pscroll').each(function(){
