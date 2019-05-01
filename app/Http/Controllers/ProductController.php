@@ -253,6 +253,7 @@ class ProductController extends Controller
                 'email'=>'suppliers.email',
                 'address'=>'suppliers.address',
                 'phone'=>'suppliers.phone',
+                'rating'=>'products.rating',
 
                 ])
 

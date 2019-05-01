@@ -2,7 +2,7 @@
 //сортировка пузырьком
 let a = [50,45,12,1,3,7,6];
 
-for (let i=0; i<a.length; i++){
+/*for (let i=0; i<a.length; i++){
     for (let j=i; j<a.length; j++){
         if (a[i]>a[j]){
             let temp = a[i];
@@ -11,7 +11,23 @@ for (let i=0; i<a.length; i++){
         }
         console.log(a);
     }
+}*/
+
+let b = [50,45,12,1,3,7,6];
+
+for (let i=0; i<a.length; i++){
+    /*for (let j=i; j<a.length; j++){
+        if (a[i]>a[j]){
+            let temp = a[i];
+            a[i]=a[j];
+            a[j]=temp;
+        }
+        console.log(a);
+    }*/
+    console.log(b);
 }
+
+
     /*let elem = document.querySelector('#nav');
     console.log(elem);
     //replaceDNode = nav.replaceChild(nav.children[1],nav.children[0]);
@@ -145,3 +161,29 @@ for (let i=0; i<a.length; i++){
         return refElem.parentNode.insertBefore(elem,refElem.nextSibling)
     }
 </script>
+
+{{--описание фильтра по категориям--}}
+<script>
+
+    function Categorii_product(idProduct) {
+        //alert(idProduct);
+        var c = idProduct;
+        //alert(c);
+            $('.item').addClass('hide');
+            $('.mur-'+c).removeClass('hide');
+
+    }
+
+    function Categorii_productAll() {
+        let f = [1,2,3,4,5,6,7,8,9,10,11,12];
+        $('.item').addClass('hide');
+        $('.mur-'+f).removeClass('hide');
+
+        for(let i=0; i<f.length; i++){
+
+            $('.mur-'+f[i]).removeClass('hide');
+
+        }
+    }
+</script>
+

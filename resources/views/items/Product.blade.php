@@ -9,11 +9,11 @@
         <div class="flex-w flex-sb-m p-b-52">
 
             <div class="flex-w flex-l-m filter-tope-group m-tb-10">
-                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
+                    <button onclick="Categorii_productAll()" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*" >
                         All Products
                     </button>
                 @foreach ($Categorii_products as $Categorii_product)
-                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".{{ $Categorii_product->id }}">
+                    <button onclick="Categorii_product({{ $Categorii_product->id }})" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".{{ $Categorii_product->id }}" id="filter12">
                         {{ $Categorii_product->name }}
                     </button>
                 @endforeach
@@ -29,8 +29,6 @@
                         <option value=".option1" >По цене, сначала дешевые</option>
                         <option value=".option2" >По цене, сначала дорогие</option>
                         <option value=".option3">По популярности</option>
-                        <option value=".option4">По названию, A-Z</option>
-                        <option value=".option5">По названию, Z-A</option>
                     </select>
 
 
@@ -181,9 +179,9 @@
 
 {{--еще вариант--}}
         <div class="products clearfix" >
-            <div id="navs">
+            <div id="navs" class="row">
                 @foreach ($products as $product)
-                    <div class="product-wrapper" data-sorts="{{ $product->unit_cost }}" data-rating="{{ $product->rating }}" data-id="{{ $product->id }}">
+                    <div class="product-wrapper item mur-{{ $product->id_category}}" data-categorii-product="{{ $product->id_category}}" data-sorts="{{ $product->unit_cost }}" data-rating="{{ $product->rating }}" data-id="{{ $product->id }}">
                         <div class="product-inner">
                             <div class="product-wrap">
                                 <img src="storage\{{ $product->image}}">
