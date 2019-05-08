@@ -196,7 +196,7 @@
         <div class="products clearfix" >
             <div id="navs" class="row">
                 @foreach ($products as $product)
-                    <div class="product-wrapper item mur-{{ $product->id_category}}" data-categorii-product="{{ $product->id_category}}" data-sorts="{{ $product->unit_cost }}" data-rating="{{ $product->rating }}" data-id="{{ $product->id }}">
+                    <div class="product-wrapper item mur-{{ $product->id_category}} tag-{{ $product->id_tags}} suppliers-{{ $product->id_suppliers}}" data-categorii-product="{{ $product->id_category}}" data-sorts="{{ $product->unit_cost }}" data-rating="{{ $product->rating }}" data-id="{{ $product->id }}">
                         <div class="product-inner">
                             <div class="product-wrap">
                                 <img src="storage\{{ $product->image}}">

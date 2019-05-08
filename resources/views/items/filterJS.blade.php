@@ -197,7 +197,7 @@ for (let i=0; i<a.length; i++){
         var Tags = idTags;
         //alert(c);
         $('.item').addClass('hide');
-        $('.mur-'+Tags).removeClass('hide');
+        $('.tag-'+Tags).removeClass('hide');
 
     }
 /*фильтр по цене*/
@@ -218,11 +218,11 @@ for (let i=0; i<a.length; i++){
         console.log(checked);
 
         $('.item').addClass('hide');
-        $('.mur-'+checked).removeClass('hide');
+        $('.suppliers-'+checked).removeClass('hide');
 
         for(let i=0; i<checked.length; i++){
 
-            $('.mur-'+checked[i]).removeClass('hide');
+            $('.suppliers-'+checked[i]).removeClass('hide');
 
         }
     });
