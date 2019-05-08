@@ -50,7 +50,11 @@
                 values: [ 1000, 5000 ],
                 slide: function( event, ui ) {
                     $( "#amount" ).val( "₽" + ui.values[ 0 ] + " - ₽" + ui.values[ 1 ] );
+                    var a1 = ui.values[ 0 ];
+                    var a2 = ui.values[ 1 ];
+                    //alert(ui.values[ 1 ]);
                 }
+
             });
             $( "#amount" ).val( "₽" + $( "#slider-range" ).slider( "values", 0 ) +
                 " - ₽" + $( "#slider-range" ).slider( "values", 1 ) );

@@ -60,20 +60,31 @@
             </div>
 
             <!-- Filter -->
-            <div class="dis-none panel-filter w-full p-t-10 controls">
-                <div class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
-                    <div class="filter-col1 p-r-15 p-b-27">
+            <div class="dis-none panel-filter w-full p-t-10 controls" >
+                <div id="Filter" class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm" onclick="filters()">
+                    {{--фильтр по производителю--}}
+                    <div id="Sort_By" class="filter-col1 p-r-15 p-b-27">
                         <div class="mtext-102 cl2 p-b-15">
                             Sort By - Производитель
                         </div>
-
+                        <div id="btn">
                             @foreach($suppliers as $supplier)
-                                <div class="checkbox"><label class="filter-link stext-106 trans-04 checkbox-label"><input type="checkbox" name="brands[]" value="1">{{ $supplier->name}}</label></div>
+                                <button  class="checkbox" data-supliers="supplier{{ $supplier->id}}">
+                                    <label onclick="supplier_product({{ $supplier->id}})"class="filter-link stext-106 trans-04 checkbox-label">
+                                        <input type="checkbox" name="brands[]" value="{{ $supplier->id}}" id="{{ $supplier->id}}">{{ $supplier->name}}
+                                    </label>
+                                </button>
                             @endforeach
-
+                        </div>
                     </div>
 
-                    <div class="filter-col2 p-r-15 p-b-27">
+
+
+
+
+                    {{--фильтр по цене--}}
+
+                    <div id="Price" class="filter-col2 p-r-15 p-b-27">
                         <div class="mtext-102 cl2 p-b-15">
                             Price - Цена
                         </div>
@@ -89,6 +100,8 @@
 
 
                     </div>
+
+                    {{--вообще то не нужный фильтр--}}
 
                     <div class="filter-col3 p-r-15 p-b-27">
                         <div class="mtext-102 cl2 p-b-15">
@@ -158,21 +171,23 @@
                         </ul>
                     </div>
 
-                    <div class="filter-col4 p-b-27">
+                    {{--фильтр по тегу или применению--}}
+                    <div id="Tags" class="filter-col4 p-b-27">
                         <div class="mtext-102 cl2 p-b-15">
                             Tags - Применение
                         </div>
 
-                        <div class="flex-w p-t-4 m-r--5">
+
                             @foreach($Tags as $Tag)
-                            <a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                                {{ $Tag->name }}
-                            </a>
+                                <div class="flex-w p-t-4 m-r--5" data-teds="teg{{ $Tag->id}}">
+                                    <button onclick="Tags_product({{ $Tag->id}})" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                                    {{ $Tag->name }}
+                                    </button>
+                                </div>
                             @endforeach
-
-
-                        </div>
                     </div>
+
+
                 </div>
             </div>
         </div>
@@ -323,6 +338,8 @@
                 </a>
             </div>
         @show
+
+
 
 
 </section>

@@ -174,6 +174,9 @@ for (let i=0; i<a.length; i++){
 
     }
 
+/*фильтр по выводу всех вариантов из каталога товара*/
+
+
     function Categorii_productAll() {
         let f = [1,2,3,4,5,6,7,8,9,10,11,12];
         $('.item').addClass('hide');
@@ -185,5 +188,79 @@ for (let i=0; i<a.length; i++){
 
         }
     }
+
+
+    /*фильтр по применению*/
+
+    function Tags_product(idTags) {
+        //alert(idTags);
+        var Tags = idTags;
+        //alert(c);
+        $('.item').addClass('hide');
+        $('.mur-'+Tags).removeClass('hide');
+
+    }
+/*фильтр по цене*/
+    $('#slider-range').click(function(){
+        let elems = document.querySelectorAll('#slider-range');
+        let a = [document.getElementById('#slider-range').values];
+        console.log(a);
+        //alert(a);
+    });
+
+    /*фильтр по производителю не доделан до ума*/
+    $('#btn').click(function(){
+        var checked = [];
+        $('input:checkbox:checked').each(function() {
+            checked.push($(this).val());
+        });
+        //alert(checked);
+        console.log(checked);
+
+        $('.item').addClass('hide');
+        $('.mur-'+checked).removeClass('hide');
+
+        for(let i=0; i<checked.length; i++){
+
+            $('.mur-'+checked[i]).removeClass('hide');
+
+        }
+    });
+
+    /*function supplier_product(idSupplier) {
+
+        var a=$('input:checked'); //выбираем все отмеченные checkbox
+
+        var out=[]; //выходной массив
+        for (var x=0; x<a.length;x++){ //перебераем все объекты
+
+            out.push(+idSupplier); //добавляем значения в выходной массив
+        }
+        console.log(out); //с массивом делаем что угодно.
+
+        alert(out);
+        var Tags = idSupplier;
+        //alert(c);
+        $('.item').addClass('hide');
+        $('.mur-'+Tags).removeClass('hide');
+
+    }*/
 </script>
 
+<script>
+    function filters() {
+
+
+        var price = document.getElementById("Filter").value;
+        console.log(price);
+        //alert(price);
+        if (price == 'Sort_By'){
+
+            alert('Sort_By');
+        }
+        //document.getElementById('selectThis').value;
+        //console.log(price);
+
+
+    }
+</script>
