@@ -45,13 +45,45 @@
         $( function() {
             $( "#slider-range" ).slider({
                 range: true,
-                min: 10,
-                max: 50000,
-                values: [ 1000, 5000 ],
+                min: 100,
+                max: 10000,
+                values: [ 100, 9500 ],
                 slide: function( event, ui ) {
                     $( "#amount" ).val( "₽" + ui.values[ 0 ] + " - ₽" + ui.values[ 1 ] );
                     var a1 = ui.values[ 0 ];
                     var a2 = ui.values[ 1 ];
+                    //var mas = [];
+                    /*$('input:checkbox:checked').each(function() {
+                        checked.push($(this).val());
+                    });*/
+                    /*let arr = [...Array(10001).keys()],
+                        arrayFilter = (arr, min, max) => arr.filter(v => v >= min && v <= max);
+                    //console.log(arr);//[ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+                    //console.log(arrayFilter(arr, a1, a2)); //[ 4, 5, 6, 7 ]
+                    //var mas = arrayFilter(arr, a1, a2);
+                    let mass = [arrayFilter(arr, a1, a2)];
+                    console.log(mass);*/
+
+
+
+
+                    /*for(let ii=0; ii<mass.length; ii++){
+
+                        $('.Price-'+mass[ii]).removeClass('hide');
+
+                    }*/
+
+                    $('.item').addClass('hide');
+                    for (var j = a1; j <= a2; j++){
+
+
+
+                        $('.Price-'+j).removeClass('hide');
+                        //console.log(j);
+                        //mas.push(j);
+
+                    }
+
                     //alert(ui.values[ 1 ]);
                 }
 

@@ -203,9 +203,9 @@ for (let i=0; i<a.length; i++){
 /*фильтр по цене*/
     $('#slider-range').click(function(){
         let elems = document.querySelectorAll('#slider-range');
-        let a = [document.getElementById('#slider-range').values];
-        console.log(a);
-        //alert(a);
+        /*var a1 = ui.values[ 0 ];
+        var a2 = ui.values[ 1 ];*/
+        alert(a1);
     });
 
     /*фильтр по производителю не доделан до ума*/
