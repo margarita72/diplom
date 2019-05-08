@@ -137,7 +137,14 @@
         @yield('related_products')
     @show
 
-
+{{--@include('items.consultant')--}}
+{{--скрипт интернет консультанта--}}
+<script>
+    window.replainSettings = { id: '94032016-1f02-4214-bb73-aeb0f1e728da' };
+    (function(u){var s=document.createElement('script');s.type='text/javascript';s.async=true;s.src=u;
+        var x=document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);
+    })('https://widget.replain.cc/dist/client.js');
+</script>
 
 <!-- Footer -->
 

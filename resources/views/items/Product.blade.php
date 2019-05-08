@@ -62,6 +62,23 @@
             <!-- Filter -->
             <div class="dis-none panel-filter w-full p-t-10 controls" >
                 <div id="Filter" class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm" onclick="filters()">
+
+                    {{--фильтр по тегу или применению--}}
+                    <div id="Tags" class="filter-col4 p-r-15 p-b-27">
+                        <div class="mtext-102 cl2 p-b-15">
+                            Tags - Применение
+                        </div>
+
+
+                        @foreach($Tags as $Tag)
+                            <div class="flex-w p-t-4 m-r--5" data-teds="teg{{ $Tag->id}}">
+                                <button onclick="Tags_product({{ $Tag->id}})" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                                    {{ $Tag->name }}
+                                </button>
+                            </div>
+                        @endforeach
+                    </div>
+
                     {{--фильтр по производителю--}}
                     <div id="Sort_By" class="filter-col1 p-r-15 p-b-27">
                         <div class="mtext-102 cl2 p-b-15">
@@ -103,7 +120,7 @@
 
                     {{--вообще то не нужный фильтр--}}
 
-                    <div class="filter-col3 p-r-15 p-b-27">
+                    {{--<div class="filter-col3 p-r-15 p-b-27">
                         <div class="mtext-102 cl2 p-b-15">
                             Color
                         </div>
@@ -169,23 +186,9 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>
-
-                    {{--фильтр по тегу или применению--}}
-                    <div id="Tags" class="filter-col4 p-b-27">
-                        <div class="mtext-102 cl2 p-b-15">
-                            Tags - Применение
-                        </div>
+                    </div>--}}
 
 
-                            @foreach($Tags as $Tag)
-                                <div class="flex-w p-t-4 m-r--5" data-teds="teg{{ $Tag->id}}">
-                                    <button onclick="Tags_product({{ $Tag->id}})" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                                    {{ $Tag->name }}
-                                    </button>
-                                </div>
-                            @endforeach
-                    </div>
 
 
                 </div>

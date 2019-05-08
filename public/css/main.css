@@ -3384,3 +3384,112 @@ input.num-product::-webkit-inner-spin-button {
 select {
   width: 200px;
 }
+
+/*
+для онлайн-консультанта*/
+
+#test{
+  position:fixed;
+  width:230px;
+  height:300px;
+  border:5px solid #466991;
+  bottom:0;
+  right:5px;
+  border-radius:10px;
+  animation: show 2s 2s both ease-in-out;
+  overflow:hidden;
+}
+@keyframes show {
+  from {
+    height:0px;
+  }
+  to {
+    height:300px;
+  }
+}
+.avatar{
+  width:230px;
+  height:50px;
+  background:#466991;
+  color:#fff;
+}
+.ava{
+  padding-top:5px;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:url('http://a.deviantart.net/avatars/a/u/austin1297.jpg');
+  background-size:cover;
+  float:left;
+  margin-right:5px;
+}
+#print{
+  animation: printO 1s linear infinite;
+  font-size:12px;
+  padding:0;
+  display:none;
+}
+@keyframes printO {
+  from { background:#00FF11;}
+  to { background:#466991;}
+}
+.fio{
+  font-size:16px;
+
+}
+.thepost{
+  font-size:14px;
+}
+.closed{
+}
+.closed:before{
+  position:absolute;
+  content:"–";
+  font-weight:bold;
+  top:0;
+  right:5px;
+  font-size:25px;
+  cursor:pointer;
+}
+.contText{
+  position:relative;
+  height:225px;
+  word-wrap:break-word;
+  overflow:auto;
+
+}
+.dialog{
+  position:absolute;
+  bottom:0;
+}
+.owner,.user{
+  width:180px;
+  border-radius:10px;
+  padding:4px;
+  margin:2px 0;
+}
+.owner{
+  float:left;
+  background:#CEE7EC;
+
+}
+.user{
+  float:right;
+  background:#FFEEDE;
+}
+.textinter{
+
+}
+.inp{
+  float:left;
+  width:185px;
+  margin-left:1px;
+  border-radius:5px 0 0 5px;
+}
+.butt{
+  background:green;
+  border:solid 1px green;
+  border-radius:0 5px 5px 0;
+  color:#fff;
+
+}
