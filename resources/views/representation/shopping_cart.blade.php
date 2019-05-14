@@ -25,45 +25,64 @@
                             <div class="wrap-table-shopping-cart">
                                 <table class="table-shopping-cart">
                                     <tr class="table_head">
-                                        <th class="column-1">Product</th>
-                                        <th class="column-2"></th>
+                                        <th class="column-1">img</th>
+                                        <th class="column-2">Product</th>
                                         <th class="column-3">Price</th>
                                         <th class="column-4">Quantity</th>
                                         <th class="column-5">Total</th>
+                                        <th class="column-6">Удалить</th>
                                     </tr>
                                     @foreach ($baskets as $basket)
-                                    <tr class="table_row">
-                                        <td class="column-1">
-                                            <div class="how-itemcart1">
-                                                <img src="storage/{{ $basket->image}}" alt="IMG">
-                                            </div>
-                                        </td>
+                                        <tr class="table_row">
+
+                                            <td class="column-1">
+
+                                                <div class="how-itemcart1">
+                                                    {{--кнопка удаления из корзины--}}{{--
+                                                    <a href="#" class="close">--}}
+
+                                                    <img src="storage/{{ $basket->image}}" alt="IMG">
+                                                </div>
+                                            </td>
 
                                             <td class="column-2">
                                                 {{ $basket->name}}
                                             </td>
 
-                                        <td class="column-3">{{ $basket->UnitPrice}}</td>
-                                        <td class="column-4">
-                                            <div class="wrap-num-product flex-w m-l-auto m-r-0">
-                                                <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-                                                    <i class="fs-16 zmdi zmdi-minus"></i>
-                                                </div>
+                                            <td class="column-3">{{ $basket->UnitPrice}}</td>
+                                            <td class="column-4">
+                                                <div class="wrap-num-product flex-w m-l-auto m-r-0">
+                                                    <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+                                                        <i class="fs-16 zmdi zmdi-minus"></i>
+                                                    </div>
 
-                                                <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" value='{{ $basket->quantity}}'>
+                                                    <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" value='{{ $basket->quantity}}'>
 
-                                                <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-                                                    <i class="fs-16 zmdi zmdi-plus"></i>
+                                                    <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+                                                        <i class="fs-16 zmdi zmdi-plus"></i>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </td>
-                                        <td class="column-5">₽
-                                            {{ $basket->final_price}}
-                                        </td>
-                                    </tr>
+                                            </td>
+                                            <td class="column-5">₽
+                                                {{ $basket->final_price}}
+                                            </td>
+                                            <td class="column-6">
+                                                <button onclick="pio()">
+                                                    <i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+                                                </button>
+
+
+                                            </td>
+
+                                        </tr>
                                     @endforeach
 
+<script>
 
+    function pio() {
+        alert('sddfgh');
+    }
+</script>
                                 </table>
                             </div>
 
