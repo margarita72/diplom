@@ -33,13 +33,25 @@ class BasketController extends Controller
         $baskets = DB::table('basket')
             ->where('id_user', $id_user)
             ->join('products', 'basket.id_products','=','products.id' )
-            ->select('name','image','UnitPrice','id_user','id_products','quantity','final_price')
+            ->select(
+                [
+                'id'=>'basket.id',
+                    'id'=>'basket.id',
+                    'name'=>'products.name',
+                    'image'=>'products.image',
+                    'UnitPrice'=>'basket.UnitPrice',
+                    'id_user'=>'basket.id_user',
+                    'id_products'=>'basket.id_products',
+                    'quantity'=>'basket.quantity',
+                    'final_price'=>'basket.final_price',
+
+                ])
             ->get();
 
+$pers =  DB::table('basket')->select('final_price')->get();
+        //dump($pers);
 
-       // dump($baskets);
-
-        return view('representation/shopping_cart', ['baskets' => $baskets, 'products' => $products]);
+        return view('representation/shopping_cart', ['baskets' => $baskets, 'products' => $products,'per'=>$pers]);
 
 
     }

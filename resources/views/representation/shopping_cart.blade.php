@@ -49,7 +49,7 @@
                                                 {{ $basket->name}}
                                             </td>
 
-                                            <td class="column-3">{{ $basket->UnitPrice}}</td>
+                                            <td class="column-3">₽{{ $basket->UnitPrice}}</td>
                                             <td class="column-4">
                                                 <div class="wrap-num-product flex-w m-l-auto m-r-0">
                                                     <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
@@ -63,13 +63,16 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td class="column-5">₽
+                                            <td class="column-5">
+                                                ₽
                                                 {{ $basket->final_price}}
                                             </td>
                                             <td class="column-6">
-                                                <button onclick="pio()">
+                                                {{--<a href = "delete/{{ $basket->id }}">elfkbnm</a>--}}
+                                                <a href="/delete/{{ $basket->id }}">
                                                     <i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
-                                                </button>
+                                                </a>
+
 
 
                                             </td>
@@ -117,73 +120,160 @@
 
                                 <div class="size-209">
 								<span class="mtext-110 cl2">
-									$79.65
+									₽
+                                    @php
+                                        $pert = 0;
+                                    @endphp
+                                    @foreach ($baskets as $basket)
+                                        {{--{{ $basket->final_price}}--}}
+
+                                        @php
+
+                                        $pert+=$basket->final_price;
+
+                                        @endphp
+                                    @endforeach
+                                    @php
+                                        echo $pert;
+                                    @endphp
+
 								</span>
                                 </div>
                             </div>
 
-                            <div class="flex-w flex-t bor12 p-t-15 p-b-30">
-                                <div class="size-208 w-full-ssm">
-								<span class="stext-110 cl2">
-									Shipping:
-								</span>
-                                </div>
+                            <form action = "/shop" method = "post">
+                                <div class="flex-w flex-t bor12 p-t-15 p-b-30">
+                                    <div class="size-208 w-full-ssm">
+                                    <span class="stext-110 cl2">
+                                        Получатель:
+                                    </span>
+                                    </div>
 
-                                <div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
-                                    <p class="stext-111 cl6 p-t-2">
-                                        There are no shipping methods available. Please double check your address, or contact us if you need any help.
-                                    </p>
+                                    <div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
+                                        <p class="stext-111 cl6 p-t-2">
+                                            Заполните все необходимые поля для инициализации получателя.
+                                        </p>
 
-                                    <div class="p-t-15">
-									<span class="stext-112 cl8">
-										Calculate Shipping
-									</span>
+                                        <div class="p-t-15">
+                                            <span class="stext-112 cl8">
+                                               Фамилия
+                                            </span>
 
-                                        <div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-                                            <select class="js-select2" name="time">
-                                                <option>Select a country...</option>
-                                                <option>USA</option>
-                                                <option>UK</option>
-                                            </select>
-                                            <div class="dropDownSelect2"></div>
-                                        </div>
+                                            <div class="bor8 bg0 m-b-12">
 
-                                        <div class="bor8 bg0 m-b-12">
-                                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="State /  country">
-                                        </div>
+                                                <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Иванов" required>
+                                            </div>
+                                            <span class="stext-112 cl8">
+                                               Имя
+                                            </span>
+                                            <div class="bor8 bg0 m-b-12">
 
-                                        <div class="bor8 bg0 m-b-22">
-                                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="postcode" placeholder="Postcode / Zip">
-                                        </div>
+                                                <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Иван" required>
+                                            </div>
+                                            <span class="stext-112 cl8">
+                                               Отчество
+                                            </span>
+                                            <div class="bor8 bg0 m-b-12">
 
-                                        <div class="flex-w">
-                                            <div class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
-                                                Update Totals
+                                                <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Иванович">
+                                            </div>
+                                            <span class="stext-112 cl8">
+                                               Телефон
+                                            </span>
+                                            <div class="bor8 bg0 m-b-12">
+
+                                                <input class="stext-111 cl8 plh3 size-111 p-lr-15" required placeholder="8952988645" id="phone" type="tel" pattern="[7-8]{1}[0-9]{10}">
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="flex-w flex-t bor12 p-t-15 p-b-30">
+                                        <div class="size-208 w-full-ssm">
+                                    <span class="stext-110 cl2">
+                                        Доставка:
+                                    </span>
+                                        </div>
 
+                                        <div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
+                                            <p class="stext-111 cl6 p-t-2">
+                                                Выберете тип доставки, и адрес, где вам будет удобно забрать продукт.
+                                            </p>
+
+                                            <div class="p-t-15">
+                                            <span class="stext-112 cl8">
+                                                Тип доставки
+                                            </span>
+
+                                                <div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
+                                                    <select class="js-select2" name="time">
+                                                        <option>Пункт выдачи</option>
+                                                        <option>Почта</option>
+                                                        <option>Курьер</option>
+                                                    </select>
+                                                    <div class="dropDownSelect2"></div>
+                                                </div>
+                                                <span class="stext-112 cl8">
+                                                    Город
+                                                </span>
+                                                <div class="bor8 bg0 m-b-12">
+
+                                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Москва">
+                                                </div>
+                                                <span class="stext-112 cl8">
+                                                    Адрес
+                                                </span>
+                                                <div class="bor8 bg0 m-b-12">
+
+                                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Ул.Петрова 45">
+                                                </div>
+                                                    <span class="stext-112 cl8">
+                                                        Вид оплаты
+                                                    </span>
+                                                <div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
+                                                    <select class="js-select2" name="time">
+                                                        <option>Наличные</option>
+                                                        <option>Visa</option>
+                                                        <option>Mastercart</option>
+                                                    </select>
+                                                    <div class="dropDownSelect2"></div>
+                                                </div>
+
+
+
+                                                {{--<div class="flex-w">
+                                                    <div class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
+                                                        Оформить
+                                                    </div>
+                                                </div>--}}
+
+                                            </div>
+
+
+                                        </div>
+
+
+
+                                </div>
+                                    <div class="flex-w flex-t p-t-27 p-b-33">
+                                    <div class="size-208">
+                                    <span class="mtext-101 cl2">
+                                        @php
+                                            echo "Итого:₽$pert"
+                                        @endphp
+                                    </span>
+                                    </span>
+                                    </div>
+
+                                    <div class="size-209 p-t-1">
+                                    <span class="mtext-110 cl2">
+
+                                    </span>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="flex-w flex-t p-t-27 p-b-33">
-                                <div class="size-208">
-								<span class="mtext-101 cl2">
-									Total:
-								</span>
+                                    <button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+                                        Оформить
+                                    </button>
                                 </div>
-
-                                <div class="size-209 p-t-1">
-								<span class="mtext-110 cl2">
-									$79.65
-								</span>
-                                </div>
-                            </div>
-
-                            <button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-                                Proceed to Checkout
-                            </button>
-                        </div>
+                            </form>
                     </div>
                 </div>
             </div>

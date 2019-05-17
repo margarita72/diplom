@@ -64,3 +64,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+
+/*маршруты по удалению заказа из корзины*/
+Route::get('delete-records','StudDeleteController@index');
+Route::get('/delete/{id}','StudDeleteController@destroy');

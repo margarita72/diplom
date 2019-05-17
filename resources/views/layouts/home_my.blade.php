@@ -7,7 +7,10 @@
     <link rel="stylesheet" type="text/css" href="../css/login/util.css">
     <link rel="stylesheet" type="text/css" href="../css/login/main.css">
 
-    <!--==================================================================-->
+
+    <!---================================================================================================================---->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-----=====================================================================================---->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="../images/icons/favicon.png"/>
@@ -293,7 +296,7 @@
 </footer>
 
 
-<!-- Back to top -->
+<!-- блок ползунка вверх -->
 <div class="btn-back-to-top" id="myBtn">
 		<span class="symbol-btn-back-to-top">
 			<i class="zmdi zmdi-chevron-up"></i>
@@ -490,6 +493,7 @@
         })
     });
 </script>
+
 <!--===============================================================================================-->
 <script src="../js/main.js"></script>
 <!--для ползунка цены-->
