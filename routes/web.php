@@ -69,3 +69,6 @@ Route::group(['prefix' => 'admin'], function () {
 /*маршруты по удалению заказа из корзины*/
 Route::get('delete-records','StudDeleteController@index');
 Route::get('/delete/{id}','StudDeleteController@destroy');
+
+/*маршрут добавления заказа на доставку в бд*/
+Route::post('/shop','ShopController@shop');

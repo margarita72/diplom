@@ -17,7 +17,7 @@
 
 
         <!-- Shoping Cart -->
-        <form class="bg0 p-t-75 p-b-85">
+        <div class="bg0 p-t-75 p-b-85">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
@@ -142,7 +142,28 @@
                             </div>
 
                             <form action = "/shop" method = "post">
+                                {{ csrf_field() }}
+
+                                {{--функция по записи в массив данных id товара в корзине--}}
+                                        @foreach ($baskets as $basket)
+
+                                            @php
+
+                                                $mua  = $basket->id_products;
+                                                $my_arr[] = $mua;
+                                            @endphp
+                                        @endforeach
+
+                                @php
+                                    //echo print_r($my_arr);
+                                @endphp
+
+
                                 <div class="flex-w flex-t bor12 p-t-15 p-b-30">
+                                    {{--невидимое поле для записи массива значений id товаров и их колличества --}}
+                                    <input type = "hidden" name = "id_tovars" value ="{{print_r($my_arr)}}">
+                                    {{--{{print_r($my_arr)}}--}}
+
                                     <div class="size-208 w-full-ssm">
                                     <span class="stext-110 cl2">
                                         Получатель:
@@ -161,28 +182,28 @@
 
                                             <div class="bor8 bg0 m-b-12">
 
-                                                <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Иванов" required>
+                                                <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="Surname_users" placeholder="Иванов" required>
                                             </div>
                                             <span class="stext-112 cl8">
                                                Имя
                                             </span>
                                             <div class="bor8 bg0 m-b-12">
 
-                                                <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Иван" required>
+                                                <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="Name_users" placeholder="Иван" required>
                                             </div>
                                             <span class="stext-112 cl8">
                                                Отчество
                                             </span>
                                             <div class="bor8 bg0 m-b-12">
 
-                                                <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Иванович">
+                                                <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="Patronymic_users" placeholder="Иванович">
                                             </div>
                                             <span class="stext-112 cl8">
                                                Телефон
                                             </span>
                                             <div class="bor8 bg0 m-b-12">
 
-                                                <input class="stext-111 cl8 plh3 size-111 p-lr-15" required placeholder="8952988645" id="phone" type="tel" pattern="[7-8]{1}[0-9]{10}">
+                                                <input class="stext-111 cl8 plh3 size-111 p-lr-15" required placeholder="8952988645" name="Phone_users" id="phone" type="tel" pattern="[7-8]{1}[0-9]{10}">
                                             </div>
                                         </div>
                                     </div>
@@ -204,7 +225,7 @@
                                             </span>
 
                                                 <div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-                                                    <select class="js-select2" name="time">
+                                                    <select class="js-select2" name="Type_of_delivery">
                                                         <option>Пункт выдачи</option>
                                                         <option>Почта</option>
                                                         <option>Курьер</option>
@@ -216,26 +237,29 @@
                                                 </span>
                                                 <div class="bor8 bg0 m-b-12">
 
-                                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Москва">
+                                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="City" placeholder="Москва">
                                                 </div>
                                                 <span class="stext-112 cl8">
                                                     Адрес
                                                 </span>
                                                 <div class="bor8 bg0 m-b-12">
 
-                                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="Ул.Петрова 45">
+                                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="address" placeholder="Ул.Петрова 45">
                                                 </div>
                                                     <span class="stext-112 cl8">
                                                         Вид оплаты
                                                     </span>
                                                 <div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-                                                    <select class="js-select2" name="time">
+                                                    <select class="js-select2" name="Wage_type">
                                                         <option>Наличные</option>
                                                         <option>Visa</option>
                                                         <option>Mastercart</option>
                                                     </select>
                                                     <div class="dropDownSelect2"></div>
                                                 </div>
+
+                                                <input type = "hidden" name = "id_users" value ="{{Auth::id()}}">
+                                                <input type = "hidden" name = "Price" value ="{{$pert}}">
 
 
 
@@ -272,12 +296,15 @@
                                     <button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
                                         Оформить
                                     </button>
+
+
                                 </div>
                             </form>
                     </div>
                 </div>
             </div>
-        </form>
+
+        </div>
 
 
     @stop
