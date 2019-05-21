@@ -22,20 +22,15 @@ Route::get('/homs', function () {
     return view('representation/homs');
 });
 Route::get('/home_my', 'ProductController@home_my');
-Route::get('/about', function () {
-    return view('representation/about');
-});
 
-Route::get('/blog', function () {
-    return view('representation/Blog/blog');
-});
+Route::get('/about', 'BlogController@about');
+Route::get('/blog', 'BlogController@blog');
+
 Route::get('/blog_detail', function () {
     return view('representation/Blog/blog_detail');
 });
+Route::get('/contact', 'BlogController@contact');
 
-Route::get('/contact', function () {
-    return view('representation/contact');
-});
 
 Route::resource('/product_detail/{id}', 'ProductController', ['only' =>['store','index']]);
 Route::post('/ajax', 'ProductController@send');

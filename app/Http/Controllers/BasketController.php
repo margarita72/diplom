@@ -22,7 +22,7 @@ class BasketController extends Controller
 //            ->get();
         //dump($baskets);
 
-
+        $products_alls = DB::table('products')->get();
 
         $products = DB::table('products')
             ->join('basket', 'products.id', '=', 'basket.id_products')
@@ -51,7 +51,12 @@ class BasketController extends Controller
 $pers =  DB::table('basket')->select('final_price')->get();
         //dump($pers);
 
-        return view('representation/shopping_cart', ['baskets' => $baskets, 'products' => $products,'per'=>$pers]);
+        return view('representation/shopping_cart', [
+            'baskets' => $baskets,
+            'products' => $products,
+            'per'=>$pers,
+            'products_alls'=>$products_alls,
+        ]);
 
 
     }

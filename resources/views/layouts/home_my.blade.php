@@ -130,16 +130,7 @@
 
     @endforeach--}}
 {{--панель для администратора--}}
-    {{--@php
-        if (Auth::check())
-            {
-                $prava =  Auth::user()->role_id;
-                if ($prava==1){
 
-                @include('items.container-menu-desktop');
-                }
-            }
-    @endphp--}}
 
 @include('items.header')
     {{--@include('items.header', ['some'=>"$product->name"])--}}
@@ -175,7 +166,9 @@
             <div class="col-sm-6 col-lg-3 p-b-50">
                 <h4 class="stext-301 cl0 p-b-30">
                     Categoriesss
-
+                    @foreach ($products_alls as $products_all)
+                        {{ $products_all->name }}
+                    @endforeach
 
 
                 </h4>

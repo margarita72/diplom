@@ -52,20 +52,27 @@ class ProductController extends Controller
 
 
     public function index($id){
+
+        $products_alls = DB::table('products')->get();
         $products=Product::
         select(['id','image','name','meta_description','unit_cost','imd_dop'])
             ->where('id',$id)->first();
         //передаю массив путей до изображений товаров
         $arr = json_decode($products->imd_dop, true);
-        //dump($arr);
+        dump($products_alls);
         //dump($products);
 
         $productss = Product::
         select(['id','image','name','meta_description','unit_cost'])
             ->get();
 
-        return view('representation/product_detail')->with(['products'=>$products,
-            'arr'=>$arr, 'productss'=>$productss]);
+        return view('representation/product_detail')->with([
+            'products'=>$products,
+            'arr'=>$arr,
+            'productss'=>$productss,
+            'products_alls'=>$products_alls,
+
+            ]);
 
 
 
@@ -176,12 +183,16 @@ class ProductController extends Controller
     }
 
     public function product_id($id){
-
+        $products_alls = DB::table('products')->get();
         $products=Product::
         select(['id','image','name','meta_description','unit_cost','imd_dop'])
             ->where('id',$id)->first();
         //dump($products);
-        return view('items/product_id')->with(['products'=>$products]);
+        return view('items/product_id')->with([
+            'products'=>$products,
+            'products_alls'=>$products_alls,
+
+        ]);
     }
 
     public function homs(Request $request)
@@ -189,6 +200,7 @@ class ProductController extends Controller
 //        $data=$request->all();
 //        //dump($data);
 //        $productsi = Product::where('id',$request->id)->get();
+        $products_alls = DB::table('products')->get();
 
         $products = DB::table('products')->paginate(15);
         $Categorii_products = DB::table('Categorii_products')->get();
@@ -201,13 +213,16 @@ class ProductController extends Controller
                 'products' => $products,
                 'Categorii_products' => $Categorii_products,
                 'suppliers' => $suppliers,
-                'Tags'=>$Tags
+                'Tags'=>$Tags,
+                'products_alls'=>$products_alls,
+
 
             ]);
     }
 
     public function product(Request $request)
     {
+        $products_alls = DB::table('products')->get();
         $products = DB::table('products')->paginate(15);
         $Categorii_products = DB::table('Categorii_products')->get();
         $suppliers = DB::table('suppliers')->get();
@@ -218,7 +233,8 @@ class ProductController extends Controller
                 'products' => $products,
                 'Categorii_products' => $Categorii_products,
                 'suppliers' => $suppliers,
-                'Tags'=>$Tags
+                'Tags'=>$Tags,
+                'products_alls'=>$products_alls,
             ]);
 
 
@@ -229,6 +245,7 @@ class ProductController extends Controller
         $searchData = $request->searchData;
 
         //dump($searchData);
+        $products_alls = DB::table('products')->get();
 
 
         $products = DB::table('products')
@@ -268,7 +285,8 @@ class ProductController extends Controller
             'products' => $products,
             'Categorii_products' => $Categorii_products,
             'suppliers' => $suppliers,
-            'Tags'=>$Tags
+            'Tags'=>$Tags,
+            'products_alls'=>$products_alls,
         ]);
 
     }
