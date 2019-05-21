@@ -150,12 +150,34 @@
                                             @php
 
                                                 $mua  = $basket->id_products;
-                                                $my_arr[] = $mua;
+                                                $my_arr[] = $mua .",";
+
                                             @endphp
                                         @endforeach
 
+
+                                {{--@foreach ($baskets as $basket)
+
+                                    @php
+
+                                        $mua2  = $basket->id_products;
+                                        $array2 = [$mua2,];
+                                        echo $mua2 .",";
+                                        $p = $mua2;
+                                    @endphp
+                                @endforeach--}}
+
                                 @php
                                     //echo print_r($my_arr);
+                                $array = [['1' => 'cvjnhbv1'],['2' => 'cvjnhbv2']];
+
+
+                                //$array = array_add($array, 'foo', 'bar');
+                                //echo print_r($array2);
+                                //echo "<br />"; // создаем новую строку
+                                echo print_r($my_arr);
+                                //echo $my_arr['0']; //выведет 300
+
                                 @endphp
 
 
@@ -163,6 +185,7 @@
                                     {{--невидимое поле для записи массива значений id товаров и их колличества --}}
                                     <input type = "hidden" name = "id_tovars" value ="{{print_r($my_arr)}}">
                                     {{--{{print_r($my_arr)}}--}}
+                                    <input type = "hidden" name = "id_tovars2" value ="{{$pert}}">
 
                                     <div class="size-208 w-full-ssm">
                                     <span class="stext-110 cl2">

@@ -169,9 +169,10 @@ class ProductController extends Controller
 
     }
     public function home_my(){
-
-
-        return view('layouts/home_my');
+        $nuk = 'hvhv';
+        $products = DB::table('products')->paginate(15);
+        //dump('dfgh');
+        return view('layouts/home_my')->with(['products' => $products]);
     }
 
     public function product_id($id){
@@ -254,6 +255,7 @@ class ProductController extends Controller
                 'address'=>'suppliers.address',
                 'phone'=>'suppliers.phone',
                 'rating'=>'products.rating',
+                'id_tags'=>'products.id_tags',
 
                 ])
 

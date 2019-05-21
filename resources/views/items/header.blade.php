@@ -1,65 +1,54 @@
 <!-- Header -->
 
-<header class="header-v4">
+<header class="header-v2">
 
-    <!-- Header desktop -->
-    <div class="container-menu-desktop">
-        <!-- Topbar -->
-        <div class="top-bar">
-            <div class="content-topbar flex-sb-m h-full container">
-                <div class="left-top-bar">
+        @if (Auth::check())
 
-                    Добро пожаловать
 
-                </div>
+                {{--$prava =  Auth::user()->role_id;--}}
+                @if (Auth::user()->role_id==1)
+                    {{--echo 'esfgrdf';--}}
+                 @include('items.container-menu-desktop');
+                @endif
 
-                <div class="right-top-bar flex-w h-full">
+        @endif
 
 
 
 
-                    <a href="#" class="flex-c-m trans-04 p-lr-25">
-                        EN
-                    </a>
+{{--@include('items.container-menu-desktop')--}}
 
-                    <a href="#" class="flex-c-m trans-04 p-lr-25">
-                        USD
-                    </a>
-                </div>
-            </div>
-        </div>
+    <div class="wrap-menu-desktop">
+        <nav class="limiter-menu-desktop container">
 
-        <div class="wrap-menu-desktop">
-            <nav class="limiter-menu-desktop container">
+            <!-- Logo desktop -->
+            <a href="#" class="logo">
+                <img src="../images/icons/logo-01.png" alt="IMG-LOGO">
+            </a>
 
-                <!-- Logo desktop -->
-                <a href="#" class="logo">
-                    <img src="../images/icons/logo-01.png" alt="IMG-LOGO">
-                </a>
-
-                <!-- Главное меню -->
-                <div class="menu-desktop">
-                    <ul class="main-menu">
+            <!-- Главное меню -->
+            <div class="menu-desktop">
+                <ul class="main-menu">
 
 
 
 
-                        <li>
-                            {!! menu('main1', 'menu') !!}
-                        </li>
+                    <li>
+                        {!! menu('main1', 'menu') !!}
+                    </li>
 
 
-                        @guest
+                    @guest
                         <li>
                             <a href="{{ route('login') }}" class="js-show-login-form">{{ __('Login') }}</a>
                         </li>
 
                         <li>
                             @if (Route::has('register'))
-                            <a href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a href="{{ route('register') }}">{{ __('Register') }}</a>
                             @endif
                         </li>
-                        @else
+                    @else
                         <li>
                             <a href="#">
                                 {{ Auth::user()->name }}
@@ -97,28 +86,27 @@
                         </li>
 
 
-                    </ul>
+                </ul>
+            </div>
+
+            <!-- Icon header Иконки меню для больших экранов-->
+            <div class="wrap-icon-header flex-w flex-r-m">
+
+
+                <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="3">
+                    <i class="zmdi zmdi-shopping-cart"></i>
                 </div>
 
-                <!-- Icon header Иконки меню для больших экранов-->
-                <div class="wrap-icon-header flex-w flex-r-m">
+                <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
+                    <i class="zmdi zmdi-favorite-outline"></i>
+                </a>
 
-
-                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="3">
-                        <i class="zmdi zmdi-shopping-cart"></i>
-                    </div>
-
-                    <a href="#" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
-                        <i class="zmdi zmdi-favorite-outline"></i>
-                    </a>
-
-                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search" >
-                        <i class="zmdi zmdi-search"></i>
-                    </div>
+                <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search" >
+                    <i class="zmdi zmdi-search"></i>
                 </div>
-                @endguest
-            </nav>
-        </div>
+            </div>
+            @endguest
+        </nav>
     </div>
 
     <!-- Header Mobile -->
