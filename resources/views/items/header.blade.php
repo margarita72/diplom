@@ -229,5 +229,27 @@
             </form>
         </div>
     </div>
+
+
+            <script type="text/javascript">
+                $(function(){
+                    $('#content').on('click', '.notify', function(){
+                        $(this).fadeOut(350, function(){
+                            $(this).remove(); // after fadeout remove from DOM
+                        });
+                    });
+
+                    // handle the additional windows
+                    $('#newSuccessBox').on('click', function(e){
+                        e.preventDefault();
+                        var samplehtml = $('<div class="notify successbox"> <h1>Success!</h1> <span class="alerticon"><img src="../images/img/check.png" alt="checkmark" /></span> <p>You did not set the proper return e-mail address. Please fill out the fields and then submit the form.</p> </div>').prependTo('#content');
+                    });
+                    $('#newAlertBox').on('click', function(e){
+                        e.preventDefault();
+                        var samplehtml = $('<div class="notify errorbox"> <h1>Warning!</h1> <span class="alerticon"><img src="../images/img/error.png" alt="error" /></span> <p>You did not set the proper return e-mail address. Please fill out the fields and then submit the form.</p> </div>').prependTo('#content');
+                    });
+                });
+            </script>
+            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     </header>
 
