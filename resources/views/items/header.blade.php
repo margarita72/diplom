@@ -1,6 +1,6 @@
 <!-- Header -->
 
-<header class="header-v2">
+<header class="header-v4">
 
         @if (Auth::check())
 
@@ -8,7 +8,7 @@
                 {{--$prava =  Auth::user()->role_id;--}}
                 @if (Auth::user()->role_id==1)
                     {{--echo 'esfgrdf';--}}
-                 @include('items.container-menu-desktop');
+                 @include('items.container-menu-desktop')
                 @endif
 
         @endif
@@ -231,7 +231,7 @@
     </div>
 
 
-            <script type="text/javascript">
+            {{--<script type="text/javascript">
                 $(function(){
                     $('#content').on('click', '.notify', function(){
                         $(this).fadeOut(350, function(){
@@ -250,6 +250,6 @@
                     });
                 });
             </script>
-            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>--}}
     </header>
 
