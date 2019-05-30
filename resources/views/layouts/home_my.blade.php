@@ -6,8 +6,9 @@
     <!--===================Стили для другой форме=================================================================================-->
     <link rel="stylesheet" type="text/css" href="../css/login/util.css">
     <link rel="stylesheet" type="text/css" href="../css/login/main.css">
-
-
+    <!--========================================================-->
+    <link rel="stylesheet" href="../css/style.css">
+    <link media="screen" href="../css/demo/styles/demo.css" type="text/css" rel="stylesheet"/>
     <!---================================================================================================================---->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-----=====================================================================================---->

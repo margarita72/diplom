@@ -9,6 +9,7 @@
         <h2 class="ltext-105 cl0 txt-center">
             About
         </h2>
+
     </section>
 
     <!-- Content page -->
@@ -16,7 +17,9 @@
         <div class="container">
             <div class="row p-b-148">
                 <div class="col-md-7 col-lg-8">
+
                     <div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
+
                         <h3 class="mtext-111 cl2 p-b-16">
                             Our Story
                         </h3>

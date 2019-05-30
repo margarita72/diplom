@@ -3653,5 +3653,22 @@ img { border: 0; max-width: 100%; }
   margin-bottom: 10px;
 }
 
+/*круговой индикатор для статистики*/
 
+svg#gits {
+  display: block;
+  width: 20%;
+}
+svg#gits circle {
+  stroke: #000;
+  fill: none;
+  stroke-width: 4px;
+  transition: .2s;
+  stroke-dashArray: 0 600;
+}
+svg#gits text {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 12px;
+  text-anchor: middle;
+}
 
