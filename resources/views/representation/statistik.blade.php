@@ -60,8 +60,8 @@
         <tbody>
         <tr>
             <th scope="row">Компания 1</th>
-            <td>190</td>
-            <td>160</td>
+            <td>19</td>
+            <td>2</td>
             <td>40</td>
             <td>120</td>
             <td>30</td>
