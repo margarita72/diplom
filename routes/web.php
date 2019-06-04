@@ -41,6 +41,7 @@ Route::post('/shopping', 'ProductController@insert'); //контролер на 
 //Route::get('/productsSuppliers', 'ProductController@productsSuppliers');
 
 Route::get('/basket', 'BasketController@basket');
+Route::get('/package', 'BasketController@package');
 Route::get('/index', function () {
     return view('home');
 });
