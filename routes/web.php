@@ -13,6 +13,7 @@
 
 Route::match(['get', 'post'],'/', 'ProductController@homs')->name('product_id');
 Route::post('/ajaxid', 'ProductController@getajaxid');
+Route::post('/register', 'ProductController@homs');
 Route::get('/product', 'ProductController@product');
 Route::get('/product_detail/{id}', 'ProductController@product_id');
 Route::get('/product/{id}', 'ProductController@product_id');

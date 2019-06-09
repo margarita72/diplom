@@ -202,7 +202,7 @@
                     <div class="product-wrapper item mur-{{ $product->id_category}} tag-{{ $product->id_tags}} suppliers-{{ $product->id_suppliers}} Price-{{ $product->unit_cost}}" data-categorii-product="{{ $product->id_category}}" data-sorts="{{ $product->unit_cost }}" data-rating="{{ $product->rating }}" data-id="{{ $product->id }}">
                         <div class="product-inner">
                             <div class="product-wrap">
-                                <img src="storage\{{ $product->image}}">
+                                <img src="storage\{{ $product->image}}" width="270" height="270">
                                 <div class="actions">
                                     <a href="" class="add-to-cart"></a>
                                     <a href="" class="quickview"></a>
