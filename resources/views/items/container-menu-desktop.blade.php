@@ -1,5 +1,5 @@
 <!-- Header desktop -->
-<div class="container-menu-desktop">
+{{--<div class="container-menu-desktop">
     <!-- Topbar -->
     <div class="top-bar">
         <div class="content-topbar flex-sb-m h-full container">
@@ -12,19 +12,19 @@
 
 
 
-                {{--@foreach ($products_alls as $products_all)
+                --}}{{--@foreach ($products_alls as $products_all)
                     @if($products_all->balance <= 5==true)
 
-                        --}}{{--{{$products_all->balance}}--}}{{--
+                        --}}{{----}}{{--{{$products_all->balance}}--}}{{----}}{{--
                         {{'необходимо пополнить товар на складе'}}
                         {{$products_all->name }}
 
 
                     @endif
 
-                @endforeach--}}
+                @endforeach--}}{{--
 
-                {{--@foreach ($products_alls as $products_all)
+                --}}{{--@foreach ($products_alls as $products_all)
 
                     @php
 
@@ -34,10 +34,10 @@
                     @endphp
                 @endforeach
                 {{$my_arr2[1]}}
-                {{count($my_arr2)}}--}}
-                {{--@php
+                {{count($my_arr2)}}--}}{{--
+                --}}{{--@php
                 echo print_r($my_arr2[1]);
-                @endphp--}}
+                @endphp--}}{{--
             </div>
 
             <div class="right-top-bar flex-w h-full">
@@ -57,7 +57,7 @@
     </div>
 
 
-</div>
+</div>--}}
 
 
 {{--блок всплывающих модальных окон--}}{{--

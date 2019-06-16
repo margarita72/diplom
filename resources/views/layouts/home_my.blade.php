@@ -341,14 +341,14 @@
                         <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
 
                         <span class="login100-form-title p-b-32">
-                            {{ __('Account Login') }}
+                            {{ __('Форма входа') }}
                         </span>
 
                             <div class="card-body">
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
                                     <span for="email" class="txt1 p-b-11">
-                                    {{ __('E-Mail Address') }}
+                                    {{ __('E-Mail адрес') }}
                                 </span>
                                     <div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
                                         <input id="email" class="input100{{ $errors->has('email') ? ' is-invalid' : '' }}" type="email" name="email" value="{{ old('email') }}" required autofocus>
@@ -361,7 +361,7 @@
                                         <span class="focus-input100"></span>
                                     </div>
                                     <span class="txt1 p-b-11">
-                                    {{ __('Password') }}
+                                    {{ __('Параль') }}
                                 </span>
                                     <div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
                                     <span class="btn-show-pass">
@@ -380,22 +380,22 @@
                                         <div class="contact100-form-checkbox">
                                             <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
                                             <label class="label-checkbox100" for="ckb1">
-                                                {{ __('Remember Me') }}
+                                                {{ __('Запомнить мен') }}
                                             </label>
                                         </div>
 
                                         <div>
                                             <a href="{{ route('password.request') }}" class="txt3">
-                                                {{ __('Forgot Your Password?') }}
+                                                {{ __('Забыли пароль?') }}
                                             </a><br>
                                             <a href="#" class="txt3">
-                                                {{ __('Want to register?') }}
+                                                {{ __('Еще не зарегестрированны?') }}
                                             </a>
                                         </div>
                                     </div>
                                     <div class="container-login100-form-btn">
                                         <button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" type="submit">
-                                            {{ __('Login') }}
+                                            {{ __('Войти') }}
                                         </button>
                                     </div>
 

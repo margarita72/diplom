@@ -1,6 +1,66 @@
 <!-- Header -->
 
 <header class="header-v4">
+    <!-- Header desktop -->
+    <div class="container-menu-desktop">
+        <!-- Topbar -->
+        <div class="top-bar">
+            <div class="content-topbar flex-sb-m h-full container">
+                <div class="left-top-bar">
+
+
+                    Добро пожаловать.
+
+
+
+
+
+                    {{--@foreach ($products_alls as $products_all)
+                        @if($products_all->balance <= 5==true)
+
+                            --}}{{--{{$products_all->balance}}--}}{{--
+                            {{'необходимо пополнить товар на складе'}}
+                            {{$products_all->name }}
+
+
+                        @endif
+
+                    @endforeach--}}
+
+                    {{--@foreach ($products_alls as $products_all)
+
+                        @php
+
+                            $muars  = $products_all->balance;
+                            $my_arr2[] = $muars;
+
+                        @endphp
+                    @endforeach
+                    {{$my_arr2[1]}}
+                    {{count($my_arr2)}}--}}
+                    {{--@php
+                    echo print_r($my_arr2[1]);
+                    @endphp--}}
+                </div>
+
+                <div class="right-top-bar flex-w h-full">
+
+
+
+
+                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        EN
+                    </a>
+
+                    <a href="#" class="flex-c-m trans-04 p-lr-25">
+                        USD
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
 
         @if (Auth::check())
 
@@ -41,12 +101,12 @@
 
                     @guest
                         <li>
-                            <a href="{{ route('login') }}" class="js-show-login-form">{{ __('Login') }}</a>
+                            <a href="{{ route('login') }}" class="js-show-login-form">{{ __('Вход') }}</a>
                         </li>
 
                         <li>
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a href="{{ route('register') }}">{{ __('Регестрация') }}</a>
                             @endif
                         </li>
                     @else
@@ -61,7 +121,7 @@
                                     <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Выход') }}
                                     </a>
 
 
