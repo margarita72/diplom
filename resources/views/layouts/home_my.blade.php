@@ -167,9 +167,9 @@
             <div class="col-sm-6 col-lg-3 p-b-50">
                 <h4 class="stext-301 cl0 p-b-30">
                     Categoriesss
-                    @foreach ($products_alls as $products_all)
+                    {{--@foreach ($products_alls as $products_all)
                         {{ $products_all->name }}
-                    @endforeach
+                    @endforeach--}}
 
 
 
@@ -260,7 +260,7 @@
 
             <div class="col-sm-6 col-lg-3 p-b-50">
                 <h4 class="stext-301 cl0 p-b-30">
-                    Newsletter
+                    Мы вам напишем
                 </h4>
 
                 <form>
@@ -271,7 +271,7 @@
 
                     <div class="p-t-18">
                         <button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
-                            Subscribe
+                            Отправить
                         </button>
                     </div>
                 </form>
@@ -303,7 +303,7 @@
 
             <p class="stext-107 cl6 txt-center">
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                Выполнила <i class="fa fa-heart-o" aria-hidden="true"></i> <a href="https://vk.com/margatita5" target="_blank">Юртина Маргарита</a>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 
             </p>

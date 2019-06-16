@@ -86,4 +86,48 @@ $pers =  DB::table('basket')->select('final_price')->get();
             'baskets' => $baskets,
         ]);
     }
+
+    public function otvet_one()
+    {
+        $id_user = auth()->user()->id;
+
+        $products_alls = DB::table('products')->get();
+
+        $products = DB::table('products')
+            ->join('basket', 'products.id', '=', 'basket.id_products')
+            ->select('name','UnitPrice')
+            ->get();
+
+
+        $baskets = DB::table('basket')
+            ->where('id_user', $id_user)
+            ->join('products', 'basket.id_products','=','products.id' )
+            ->select(
+                [
+                    'id'=>'basket.id',
+                    'id'=>'basket.id',
+                    'name'=>'products.name',
+                    'image'=>'products.image',
+                    'UnitPrice'=>'basket.UnitPrice',
+                    'id_user'=>'basket.id_user',
+                    'id_products'=>'basket.id_products',
+                    'quantity'=>'basket.quantity',
+                    'final_price'=>'basket.final_price',
+
+                ])
+            ->get();
+
+        $pers =  DB::table('basket')->select('final_price')->get();
+        //dump($pers);
+
+        return view('representation/otvet_one', [
+            'baskets' => $baskets,
+            'products' => $products,
+            'per'=>$pers,
+            'products_alls'=>$products_alls,
+        ]);
+
+    }
+
+
 }

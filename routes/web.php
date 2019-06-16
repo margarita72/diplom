@@ -54,6 +54,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/construct', 'BlogController@construct');
+Route::get('/construct/otvet-1', 'BasketController@otvet_one');
 
 
 

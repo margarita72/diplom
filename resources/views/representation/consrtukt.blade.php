@@ -13,7 +13,7 @@
         <div class="container">
             <div class="flex-w flex-tr">
                 <div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
-                    <form>
+                    {{--<form method="post">--}}
                         <h4 class="mtext-105 cl2 txt-center p-b-30">
                             Введите параметры, которые помогут сформировать пакет именно для вас.
                         </h4>
@@ -62,12 +62,19 @@
                         </br>
                         <p>Для более правильных расчетов рекомендуем воспользоваться консультацией специалистов сайта.</p>
 
-                        <button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
+                        <button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" onclick="rty()" />
                             Рассчитать
                         </button>
-                    </form>
+                    {{--</form>--}}
                 </div>
 
+                <script>
+                    function rty()
+                    {
+                        //alert('sdfvgbhnm');
+                        location.href='/construct/otvet-1';
+                    }
+                </script>
                 <div class="size-210 bor10 flex-w flex-col-m p-lr-93 p-tb-30 p-lr-15-lg w-full-md">
                     <div class="flex-w w-full p-b-42">
 						<span class="fs-18 cl5 txt-center size-211">
